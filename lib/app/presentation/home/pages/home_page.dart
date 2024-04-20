@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/home/components/switch_widget.dart';
+import 'package:arquitetura_flutter/app/presentation/home/components/switch_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

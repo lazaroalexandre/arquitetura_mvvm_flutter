@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/home/controllers/home_controller.dart';
+import 'package:arquitetura_flutter/app/presentation/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
 class SwitchWidget extends StatelessWidget {
@@ -10,7 +10,7 @@ class SwitchWidget extends StatelessWidget {
       valueListenable: HomeController.instance.themeSwitch,
       builder: (context, value, snapshot) {
         return Switch(
-          value: HomeController.instance.themeSwitch.value,
+          value: HomeController.instance.isDark,
           onChanged: (value) {
             HomeController.instance.changeValue(value);
           },
