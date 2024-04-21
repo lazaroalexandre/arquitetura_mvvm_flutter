@@ -12,7 +12,7 @@ class SwitchWidget extends StatelessWidget {
         return Switch(
           value: HomeController.instance.isDark,
           onChanged: (value) {
-            HomeController.instance.changeValue(value);
+            HomeController.instance.changeThemeViewmodel.changeValue(value);
           },
         );
       }
