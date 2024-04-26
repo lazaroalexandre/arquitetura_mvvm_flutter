@@ -7,15 +7,28 @@ class SwitchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<bool>(
-      valueListenable: HomeController.instance.themeSwitch,
-      builder: (context, value, snapshot) {
-        return Switch(
-          value: HomeController.instance.isDark,
-          onChanged: (value) {
-            HomeController.instance.changeThemeViewmodel.changeValue(value);
-          },
-        );
-      }
-    );
+        valueListenable: HomeController.instance.themeSwitch,
+        builder: (context, value, snapshot) {
+          return SizedBox(
+            height: 28,
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: Switch(
+                thumbIcon: HomeController.instance.isDark
+                    ? const MaterialStatePropertyAll(Icon(
+                        Icons.bedtime_rounded,
+                      ))
+                    : const MaterialStatePropertyAll(Icon(
+                        Icons.auto_awesome_rounded,
+                      )),
+                value: HomeController.instance.isDark,
+                onChanged: (value) {
+                  HomeController.instance.changeThemeViewmodel
+                      .changeValue(value);
+                },
+              ),
+            ),
+          );
+        });
   }
 }
