@@ -15,6 +15,21 @@ class ListUserWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Consumer<UserController>(
         builder: (_, value, __) {
+          if (value.isLoading.value) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (value.error.value.isNotEmpty) {
+            return Center(
+              child: Text(value.error.value),
+            );
+          }
+          if (value.users.value.isEmpty) {
+            return const Center(
+              child: Text("Não existem contatos registrados!"),
+            );
+          }
           return ListView.builder(
             itemCount: value.users.value.length,
             itemBuilder: (_, index) {
@@ -23,7 +38,7 @@ class ListUserWidget extends StatelessWidget {
             },
           );
         },
-          ),
+      ),
     );
   }
 }

@@ -12,7 +12,11 @@ class UserController extends ChangeNotifier {
 
   ValueNotifier<List<UserModel>> get users => viewmodel.users;
 
-  getUsers() async{
+  ValueNotifier<bool> get isLoading => viewmodel.isLoading;
+
+  ValueNotifier<String> get error => viewmodel.error;
+
+  getUsers() async {
     await viewmodel.fill();
     notifyListeners();
   }
