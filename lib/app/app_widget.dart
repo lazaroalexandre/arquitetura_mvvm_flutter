@@ -2,7 +2,7 @@ import 'package:arquitetura_flutter/app/presentation/home/controllers/home_contr
 import 'package:arquitetura_flutter/app/presentation/home/controllers/user_controller.dart';
 import 'package:arquitetura_flutter/app/presentation/home/pages/home_page.dart';
 import 'package:arquitetura_flutter/app/repositories/user_repository_impl.dart';
-import 'package:arquitetura_flutter/app/services/client/client_service.dart';
+import 'package:arquitetura_flutter/app/services/client/client_service_impl.dart';
 import 'package:arquitetura_flutter/app/viewmodels/user_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +18,7 @@ class AppWidget extends StatelessWidget {
           value: UserController(
             viewmodel: UserViewmodel(
               userRepository: UserRepositoryImpl(
-                clientInterface: ClientService(),
+                clientInterface: ClientServiceImpl(),
               ),
             ),
           ),

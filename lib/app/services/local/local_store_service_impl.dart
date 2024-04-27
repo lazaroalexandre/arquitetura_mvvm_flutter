@@ -1,7 +1,7 @@
-import 'package:arquitetura_flutter/app/interfaces/local_storage_interface.dart';
+import 'package:arquitetura_flutter/app/services/local/local_store_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedLocalStoreService implements LocalStorageInterface {
+class LocalStoreServiceImpl implements LocalStoreService {
   @override
   Future delete(String key) async {
     var shared = await SharedPreferences.getInstance();
