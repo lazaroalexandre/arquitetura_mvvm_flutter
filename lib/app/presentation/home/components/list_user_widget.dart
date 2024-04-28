@@ -13,27 +13,28 @@ class ListUserWidget extends StatelessWidget {
     userController.getUsers();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Consumer<UserController>(
-        builder: (_, value, __) {
-          if (value.isLoading.value) {
+      child: AnimatedBuilder(
+        animation: userController,
+        builder: (_, __) {
+          if (userController.isLoading.value) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
-          if (value.error.value.isNotEmpty) {
+          if (userController.error.value.isNotEmpty) {
             return Center(
-              child: Text(value.error.value),
+              child: Text(userController.error.value),
             );
           }
-          if (value.users.value.isEmpty) {
+          if (userController.users.value.isEmpty) {
             return const Center(
               child: Text("Não existem contatos registrados!"),
             );
           }
           return ListView.builder(
-            itemCount: value.users.value.length,
+            itemCount: userController.users.value.length,
             itemBuilder: (_, index) {
-              final UserModel model = value.users.value[index];
+              final UserModel model = userController.users.value[index];
               return ListTileWidget(model: model);
             },
           );
