@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(text: "Meus Contatos"),
-      body: const ListUserWidget(),
+      body:  const ListUserWidget(),
       floatingActionButton: FloatingActionButton(onPressed: (){}, child: const Icon(Icons.add),),
     );
   }
