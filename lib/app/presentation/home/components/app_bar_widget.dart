@@ -17,7 +17,7 @@ class AppBarWidget extends AppBar {
   ShapeBorder? get shape => const Border(bottom: BorderSide(width: 0.1));
 
   @override
-  List<Widget>? get actions => const [SwitchWidget(), SizedBox(width: 16)];
+  List<Widget>? get actions => const[ SwitchWidget(), SizedBox(width: 16)];
 
   @override
   Widget? get title => Padding(
