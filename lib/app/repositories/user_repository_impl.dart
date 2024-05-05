@@ -7,14 +7,14 @@ import 'package:dio/dio.dart';
 import 'user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  final ClientService clientInterface;
+  final ClientService clientService;
   UserRepositoryImpl({
-    required this.clientInterface,
+    required this.clientService,
   });
 
   @override
   Future<List<UserModel>> getUsers() async {
-    final Response response = await clientInterface
+    final Response response = await clientService
         .get("https://64e50431c555638029140c0f.mockapi.io/user");
 
     if (response.statusCode == 200) {
@@ -26,6 +26,40 @@ class UserRepositoryImpl implements UserRepository {
       }).toList();
 
       return users;
+    } else if (response.statusCode == 404) {
+      throw ExceptionNotFound(message: "A url não foi encontrada!");
+    } else {
+      throw Exception("Não foi possível carregar os contatos!");
+    }
+  }
+
+  @override
+  Future<UserModel> postUser(UserModel userModel) async {
+    final Response response = await clientService.post(
+        "https://64e50431c555638029140c0f.mockapi.io/user", userModel.toJson());
+
+    if (response.statusCode == 201) {
+      return UserModel.fromMap(response.data);
+    } else if (response.statusCode == 404) {
+      throw ExceptionNotFound(message: "A url não foi encontrada!");
+    } else {
+      throw Exception("Não foi possível carregar os contatos!");
+    }
+  }
+
+  @override
+  Future<void> deleteUser(String id) async {
+    await clientService
+        .delete("https://64e50431c555638029140c0f.mockapi.io/user/$id");
+  }
+
+  @override
+  Future<UserModel> putUser(UserModel userModel, String id) async {
+    final Response response = await clientService.put(
+        "https://64e50431c555638029140c0f.mockapi.io/user/$id",
+        userModel.toJson());
+       if (response.statusCode == 200) {
+      return UserModel.fromMap(response.data);
     } else if (response.statusCode == 404) {
       throw ExceptionNotFound(message: "A url não foi encontrada!");
     } else {

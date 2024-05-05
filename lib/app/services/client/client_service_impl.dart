@@ -11,4 +11,19 @@ class ClientServiceImpl implements ClientService {
   Future get(String url) async {
     return await dio.get(url);
   }
+
+  @override
+  Future post(String url, Object data) async {
+    return await dio.post(url, data: data);
+  }
+
+  @override
+  Future delete(String url) async {
+    return await dio.delete(url);
+  }
+
+  @override
+  Future put(String url, Object data) async {
+    return await dio.put(url, data: data);
+  }
 }

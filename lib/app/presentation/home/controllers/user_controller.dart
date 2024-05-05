@@ -16,8 +16,31 @@ class UserController extends ChangeNotifier {
 
   ValueNotifier<String> get error => viewmodel.error;
 
-  getUsers() async {
-    await viewmodel.fill();
+  getAllUsers() async {
+    await viewmodel.listAll();
+    notifyListeners();
+  }
+
+  postUser(UserModel userModel) async {
+    await viewmodel.create(userModel);
+    getAllUsers();
+    notifyListeners();
+  }
+
+  filterUsers(String value) {
+    viewmodel.listFilter(value);
+    notifyListeners();
+  }
+
+  deleteUser(String id) async {
+    await viewmodel.remove(id);
+    getAllUsers();
+    notifyListeners();
+  }
+
+  putUser(UserModel userModel, String id) async {
+    await viewmodel.update(userModel, id);
+    getAllUsers();
     notifyListeners();
   }
 }

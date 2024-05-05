@@ -19,7 +19,7 @@ sealed class GetItInject {
     getIt.registerLazySingleton(
         () => UserViewmodel(userRepository: getIt<UserRepository>()));
     getIt.registerLazySingleton<UserRepository>(
-        () => UserRepositoryImpl(clientInterface: getIt<ClientService>()));
+        () => UserRepositoryImpl(clientService: getIt<ClientService>()));
     getIt.registerLazySingleton<ClientService>(() => ClientServiceImpl());
 
     getIt.registerSingleton<LocalStoreService>(LocalStoreServiceImpl());

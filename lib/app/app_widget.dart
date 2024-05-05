@@ -1,6 +1,7 @@
 import 'package:arquitetura_flutter/app/get_it_inject.dart';
 import 'package:arquitetura_flutter/app/presentation/home/controllers/home_controller.dart';
 import 'package:arquitetura_flutter/app/presentation/home/pages/home_page.dart';
+import 'package:arquitetura_flutter/app/uikit/visual_identity/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -17,7 +18,7 @@ class AppWidget extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
-          theme: isDark ? ThemeData.dark() : ThemeData.light(),
+          theme: isDark ? darkTheme : ligthTheme,
           home: const HomePage(),
         );
       },

@@ -1,23 +1,23 @@
 import 'package:arquitetura_flutter/app/get_it_inject.dart';
 import 'package:arquitetura_flutter/app/models/user_model.dart';
-import 'package:arquitetura_flutter/app/presentation/home/components/list_tile_widget.dart';
+import 'package:arquitetura_flutter/app/presentation/home/widgets/cards/card_list_tile_widget.dart';
 import 'package:arquitetura_flutter/app/presentation/home/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 
-class ListUserWidget extends StatefulWidget {
-  const ListUserWidget({super.key});
+class UserListUserViewWidget extends StatefulWidget {
+  const UserListUserViewWidget({super.key});
 
   @override
-  State<ListUserWidget> createState() => _ListUserWidgetState();
+  State<UserListUserViewWidget> createState() => _UserListUserViewWidget();
 }
 
-class _ListUserWidgetState extends State<ListUserWidget> {
+class _UserListUserViewWidget extends State<UserListUserViewWidget> {
   final userController = GetItInject.getIt<UserController>();
 
   @override
   void initState() {
     super.initState();
-    userController.getUsers();
+    userController.getAllUsers();
   }
 
   @override
@@ -52,7 +52,7 @@ class _ListUserWidgetState extends State<ListUserWidget> {
             itemCount: userController.users.value.length,
             itemBuilder: (_, index) {
               final UserModel model = userController.users.value[index];
-              return ListTileWidget(model: model);
+              return CardListTileWidget(model: model);
             },
           );
         },
