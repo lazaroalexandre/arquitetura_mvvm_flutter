@@ -1,7 +1,5 @@
-import 'package:arquitetura_flutter/app/uikit/tokens/colors/dark_colors.dart';
-import 'package:arquitetura_flutter/app/uikit/tokens/colors/light_colors.dart';
 import 'package:flutter/material.dart';
-
+import 'package:arquitetura_flutter/app/uikit/uikit.dart';
 part '../schemes/light_color_schemes.dart';
 part '../schemes/dark_color_schemes.dart';
 

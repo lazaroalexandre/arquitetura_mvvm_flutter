@@ -1,6 +1,6 @@
-import 'package:arquitetura_flutter/app/uikit/atomic/molecules/texts/body_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:arquitetura_flutter/app/uikit/uikit.dart';
 
 class FormInput extends StatelessWidget {
   final String text;

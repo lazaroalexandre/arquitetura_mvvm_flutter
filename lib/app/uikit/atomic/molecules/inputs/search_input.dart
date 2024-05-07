@@ -1,6 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:arquitetura_flutter/app/uikit/tokens/sizes/scale.dart';
 import 'package:flutter/material.dart';
+import 'package:arquitetura_flutter/app/uikit/uikit.dart';
 
 class SearchInput extends StatelessWidget {
   final void Function(String)? onChanged;

@@ -39,7 +39,7 @@ dependencies:
   get_it: ^7.6.7
   validatorless: ^1.2.3
   mask_text_input_formatter: ^2.9.0
-
+  flutter_getit: ^2.0.0
 
 dev_dependencies:
   flutter_test:
