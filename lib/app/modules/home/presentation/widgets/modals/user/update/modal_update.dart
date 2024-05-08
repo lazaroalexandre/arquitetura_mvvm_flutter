@@ -33,7 +33,10 @@ class _ModalUpdateState extends State<ModalUpdate> {
     _nameEC.text = widget.model.name;
     _emailEC.text = widget.model.email;
     _jobEC.text = widget.model.job;
-    _phoneEC.text = widget.model.phone;
+    _phoneEC.text = widget.model.phone.replaceAllMapped(
+      Mask.phoneOutput,
+      Mask.photoOutputMacth,
+    );
     _sexEC.selectSex.value = widget.model.sex;
   }
 
@@ -84,7 +87,7 @@ class _ModalUpdateState extends State<ModalUpdate> {
                   sex: _sexEC.selectSex.value,
                   email: _emailEC.text,
                   job: _jobEC.text,
-                  phone: _phoneEC.text,
+                  phone: _phoneEC.text.replaceAll(Mask.removeMask, ''),
                 );
                 showDialog(
                   context: context,

@@ -24,7 +24,11 @@ class CardListTileWidget extends StatelessWidget {
       ),
       leading: model.avatar,
       title: model.name,
-      subtitle: "${model.job} | ${model.sex} | ${model.email} | ${model.phone}",
+      subtitle:
+          "${model.job} | ${model.sex} | ${model.email} | ${model.phone.replaceAllMapped(
+        Mask.phoneOutput,
+        Mask.photoOutputMacth,
+      )}",
       onPressedTrailing: () => showDialog(
         context: context,
         builder: (context) => ConfirmDeleteUserModalWidget(userModel: model),

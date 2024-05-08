@@ -66,7 +66,7 @@ class _ModalCreatedState extends State<ModalCreated> {
                   sex: _sexEC.selectSex.value,
                   email: _emailEC.text,
                   job: _jobEC.text,
-                  phone: _phoneEC.text,
+                  phone: _phoneEC.text.replaceAll(Mask.removeMask, ''),
                 );
                 controller.postUser(userModel);
                 Navigator.of(context).pop();

@@ -1,8 +1,6 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/sex_controller.dart';
 import 'package:arquitetura_flutter/app/uikit/uikit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:validatorless/validatorless.dart';
 
 class FormUser extends StatelessWidget {
@@ -37,37 +35,31 @@ class FormUser extends StatelessWidget {
               FormInput(
                 text: 'Nome',
                 controller: name,
-                validator: Validatorless.required('Campo obrigatório'),
+                validator:
+                    Validatorless.required(FormValidatorMessage.required),
               ),
               FormInput(
                 text: 'E-mail',
                 controller: email,
                 validator: Validatorless.multiple([
-                  Validatorless.required('Campo obrigatório'),
-                  Validatorless.email('O campo deve ter formato de e-mail'),
+                  Validatorless.required(FormValidatorMessage.required),
+                  Validatorless.email(FormValidatorMessage.email),
                 ]),
               ),
               FormInput(
                 text: 'Profissão',
                 controller: job,
-                validator: Validatorless.required('Campo obrigatório'),
+                validator:
+                    Validatorless.required(FormValidatorMessage.required),
               ),
               FormInput(
                 text: 'Telefone',
                 controller: phone,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  MaskTextInputFormatter(
-                    mask: '(##) #####-####',
-                    filter: {'#': RegExp(r'[0-9]')},
-                  ),
-                ],
+                inputFormatters: Mask.phoneInput,
                 validator: Validatorless.multiple([
-                  Validatorless.required('Campo obrigatório'),
-                  Validatorless.min(
-                      15, 'O campo deve ter no mínimo 11 dígitos'),
-                  Validatorless.max(
-                      15, 'O campo deve ter no máximo 11 dígitos'),
+                  Validatorless.required(FormValidatorMessage.required),
+                  Validatorless.min(15, FormValidatorMessage.phoneMin),
+                  Validatorless.max(15, FormValidatorMessage.phoneMax),
                 ]),
               ),
               const MediumSpace(),
