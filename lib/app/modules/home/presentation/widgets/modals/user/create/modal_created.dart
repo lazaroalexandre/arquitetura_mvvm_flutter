@@ -2,9 +2,10 @@ import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/sex_controller.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/forms/user/form_user.dart';
-import 'package:arquitetura_flutter/app/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ModalCreated extends StatefulWidget {
   const ModalCreated({Key? key}) : super(key: key);
@@ -39,8 +40,8 @@ class _ModalCreatedState extends State<ModalCreated> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SuperTitleText(
-            text: "Novo Contato",
+          SuperTitleText(
+            text: AppLocalizations.of(context)!.new_contact,
           ),
           const MediumSpace(),
           Expanded(
@@ -55,8 +56,8 @@ class _ModalCreatedState extends State<ModalCreated> {
             ),
           ),
           GroupModalButtons(
-            back: "Voltar",
-            next: "Salvar",
+            back: AppLocalizations.of(context)!.back,
+            next: AppLocalizations.of(context)!.save,
             onPressedBack: () => Navigator.of(context).pop(),
             onPressedNext: () {
               final valid = _formKey.currentState?.validate() ?? false;

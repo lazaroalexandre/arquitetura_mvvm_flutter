@@ -1,7 +1,7 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/modals/user/confirm/confirm_delete_user_modal_widget.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/modals/user/update/modal_update.dart';
 import 'package:flutter/material.dart';
-import 'package:arquitetura_flutter/app/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 
 import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
 

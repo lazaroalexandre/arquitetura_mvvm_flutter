@@ -1,11 +1,14 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:arquitetura_flutter/app/core/repositories/local/local_store_service.dart';
 import 'package:arquitetura_flutter/app/core/repositories/local/local_store_service_impl.dart';
-import 'package:arquitetura_flutter/app/uikit/visual_identity/themes/themes.dart';
 import 'package:arquitetura_flutter/app/modules/home/viewmodels/change_theme_viewmodel.dart';
 import 'package:arquitetura_flutter/app/modules/home/home_module.dart';
+import 'package:arquitetura_flutter/l10n/l10n.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -45,6 +48,13 @@ class AppWidget extends StatelessWidget {
                 theme: isDark ? darkTheme : ligthTheme,
                 navigatorObservers: [flutterGetItNavObserver],
                 routes: routes,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: L10n.all,
               );
             },
           );

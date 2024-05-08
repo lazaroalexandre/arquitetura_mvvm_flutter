@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
-import 'package:arquitetura_flutter/app/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ConfirmDeleteUserModalWidget extends StatelessWidget {
   final UserModel userModel;
@@ -26,17 +26,17 @@ class ConfirmDeleteUserModalWidget extends StatelessWidget {
             children: [
               SuperTitleText(
                 text:
-                    "Tem certeza que deseja apagar o contato de ${userModel.name}?",
+                    "${AppLocalizations.of(context)!.title_confirm_delete} ${userModel.name}?",
               ),
               const MediumSpace(),
-              const BodyText(
-                  text:
-                      "Ao confirmar, todos os dados do contato serão apagados!\nSe você não tiver certeza no que está prestes a fazer, clique em cancelar, por favor."),
+              BodyText(
+                text: AppLocalizations.of(context)!.text_confirm_delete,
+              ),
             ],
           ),
           GroupModalButtons(
-            back: "Cancelar",
-            next: "Confirmar",
+            back: AppLocalizations.of(context)!.cancel,
+            next: AppLocalizations.of(context)!.confirm,
             onPressedBack: () => Navigator.of(context).pop(),
             onPressedNext: () {
               controller.deleteUser(userModel.id.toString());

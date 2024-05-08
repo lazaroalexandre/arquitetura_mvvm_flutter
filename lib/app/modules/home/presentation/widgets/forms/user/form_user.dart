@@ -1,7 +1,8 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/sex_controller.dart';
-import 'package:arquitetura_flutter/app/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FormUser extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -33,38 +34,38 @@ class FormUser extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               FormInput(
-                text: 'Nome',
+                text: AppLocalizations.of(context)!.name,
                 controller: name,
                 validator:
-                    Validatorless.required(FormValidatorMessage.required),
+                    Validatorless.required(FormValidatorMessage.required(context)),
               ),
               FormInput(
-                text: 'E-mail',
+                text: AppLocalizations.of(context)!.email,
                 controller: email,
                 validator: Validatorless.multiple([
-                  Validatorless.required(FormValidatorMessage.required),
-                  Validatorless.email(FormValidatorMessage.email),
+                  Validatorless.required(FormValidatorMessage.required(context)),
+                  Validatorless.email(FormValidatorMessage.email(context)),
                 ]),
               ),
               FormInput(
-                text: 'Profissão',
+                text: AppLocalizations.of(context)!.job,
                 controller: job,
                 validator:
-                    Validatorless.required(FormValidatorMessage.required),
+                    Validatorless.required(FormValidatorMessage.required(context)),
               ),
               FormInput(
-                text: 'Telefone',
+                text: AppLocalizations.of(context)!.phone,
                 controller: phone,
                 inputFormatters: Mask.phoneInput,
                 validator: Validatorless.multiple([
-                  Validatorless.required(FormValidatorMessage.required),
-                  Validatorless.min(15, FormValidatorMessage.phoneMin),
-                  Validatorless.max(15, FormValidatorMessage.phoneMax),
+                  Validatorless.required(FormValidatorMessage.required(context)),
+                  Validatorless.min(15, FormValidatorMessage.phoneMin(context)),
+                  Validatorless.max(15, FormValidatorMessage.phoneMax(context)),
                 ]),
               ),
               const MediumSpace(),
-              const BodyText(
-                text: 'Sexo:',
+              BodyText(
+                text: '${AppLocalizations.of(context)!.sex}:',
               ),
               const SmallSpace(),
               ValueListenableBuilder(
@@ -77,13 +78,13 @@ class FormUser extends StatelessWidget {
                         groupValue: sex,
                         onChanged: onChanged,
                       ),
-                      const BodyText(text: 'Masculino'),
+                      BodyText(text: AppLocalizations.of(context)!.male),
                       Radio(
                         value: 'Feminino',
                         groupValue: sex,
                         onChanged: onChanged,
                       ),
-                      const BodyText(text: 'Feminino'),
+                      BodyText(text: AppLocalizations.of(context)!.female),
                     ],
                   );
                 },

@@ -3,6 +3,8 @@ import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/us
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/cards/card_list_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class UserListUserViewWidget extends StatelessWidget {
   UserListUserViewWidget({super.key});
@@ -28,8 +30,8 @@ class UserListUserViewWidget extends StatelessWidget {
             );
           }
           if (userController.users.value.isEmpty) {
-            return const Center(
-              child: Text("Não existem contatos registrados!"),
+            return Center(
+              child: Text(AppLocalizations.of(context)!.without_contact),
             );
           }
           return ListView.builder(

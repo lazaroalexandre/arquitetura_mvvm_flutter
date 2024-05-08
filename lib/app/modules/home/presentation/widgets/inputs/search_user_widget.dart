@@ -1,5 +1,5 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
-import 'package:arquitetura_flutter/app/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 

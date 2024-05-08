@@ -1,9 +1,9 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/sex_controller.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/forms/user/form_user.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/modals/user/confirm/confirm_update_user_modal_widget.dart';
-import 'package:arquitetura_flutter/app/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
 
 class ModalUpdate extends StatefulWidget {
@@ -56,9 +56,8 @@ class _ModalUpdateState extends State<ModalUpdate> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Detalhes do Contato",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          SuperTitleText(
+            text: AppLocalizations.of(context)!.contact_details,
           ),
           const MediumSpace(),
           Expanded(
@@ -75,8 +74,8 @@ class _ModalUpdateState extends State<ModalUpdate> {
             ),
           ),
           GroupModalButtons(
-            back: "Voltar",
-            next: "Salvar",
+            back:  AppLocalizations.of(context)!.back,
+            next:  AppLocalizations.of(context)!.save,
             onPressedBack: () => Navigator.of(context).pop(),
             onPressedNext: () {
               final valid = _formKey.currentState?.validate() ?? false;
