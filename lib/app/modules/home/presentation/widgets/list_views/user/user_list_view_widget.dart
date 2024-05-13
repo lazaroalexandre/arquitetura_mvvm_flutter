@@ -1,10 +1,10 @@
 import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/widgets/cards/card_list_tile_widget.dart';
+import 'package:arquitetura_flutter/uikit/uikit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 
 class UserListUserViewWidget extends StatelessWidget {
   UserListUserViewWidget({super.key});
@@ -15,7 +15,7 @@ class UserListUserViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     userController.getAllUsers();
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: Scale.xs),
       child: AnimatedBuilder(
         animation: userController,
         builder: (_, __) {
@@ -25,13 +25,22 @@ class UserListUserViewWidget extends StatelessWidget {
             );
           }
           if (userController.error.value.isNotEmpty) {
-            return Center(
-              child: Text(userController.error.value),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/internal-server.png", height: Scale.xxl),
+                HeadlineText(text: AppLocalizations.of(context)!.error_internal_server),
+              ],
             );
           }
           if (userController.users.value.isEmpty) {
-            return Center(
-              child: Text(AppLocalizations.of(context)!.without_contact),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/empty-pana.png", height: Scale.xxl),
+                HeadlineText(
+                    text: AppLocalizations.of(context)!.without_contact),
+              ],
             );
           }
           return ListView.builder(

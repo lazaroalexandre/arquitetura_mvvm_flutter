@@ -29,36 +29,38 @@ class FormUser extends StatelessWidget {
       child: Form(
         key: formKey,
         child: Padding(
-          padding: const EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.only(right: Scale.xs),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               FormInput(
                 text: AppLocalizations.of(context)!.name,
                 controller: name,
-                validator:
-                    Validatorless.required(FormValidatorMessage.required(context)),
+                validator: Validatorless.required(
+                    FormValidatorMessage.required(context)),
               ),
               FormInput(
                 text: AppLocalizations.of(context)!.email,
                 controller: email,
                 validator: Validatorless.multiple([
-                  Validatorless.required(FormValidatorMessage.required(context)),
+                  Validatorless.required(
+                      FormValidatorMessage.required(context)),
                   Validatorless.email(FormValidatorMessage.email(context)),
                 ]),
               ),
               FormInput(
                 text: AppLocalizations.of(context)!.job,
                 controller: job,
-                validator:
-                    Validatorless.required(FormValidatorMessage.required(context)),
+                validator: Validatorless.required(
+                    FormValidatorMessage.required(context)),
               ),
               FormInput(
                 text: AppLocalizations.of(context)!.phone,
                 controller: phone,
                 inputFormatters: Mask.phoneInput,
                 validator: Validatorless.multiple([
-                  Validatorless.required(FormValidatorMessage.required(context)),
+                  Validatorless.required(
+                      FormValidatorMessage.required(context)),
                   Validatorless.min(15, FormValidatorMessage.phoneMin(context)),
                   Validatorless.max(15, FormValidatorMessage.phoneMax(context)),
                 ]),
@@ -69,26 +71,57 @@ class FormUser extends StatelessWidget {
               ),
               const SmallSpace(),
               ValueListenableBuilder(
-                valueListenable: sex.selectSex,
-                builder: (_, sex, __) {
-                  return Row(
-                    children: [
-                      Radio(
-                        value: 'Masculino',
-                        groupValue: sex,
-                        onChanged: onChanged,
-                      ),
-                      BodyText(text: AppLocalizations.of(context)!.male),
-                      Radio(
-                        value: 'Feminino',
-                        groupValue: sex,
-                        onChanged: onChanged,
-                      ),
-                      BodyText(text: AppLocalizations.of(context)!.female),
-                    ],
-                  );
-                },
-              ),
+                  valueListenable: sex.selectSex,
+                  builder: (_, sex, __) {
+                    final double screenWidth =
+                        MediaQuery.of(context).size.width;
+                    final bool isScreenNarrow = screenWidth < Scale.xxxl;
+
+                    if (isScreenNarrow) {
+                      return Column(
+                        children: [
+                          Row(
+                            children: [
+                              Radio(
+                                value: 'Masculino',
+                                groupValue: sex,
+                                onChanged: onChanged,
+                              ),
+                              BodyText(
+                                  text: AppLocalizations.of(context)!.male),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Radio(
+                                value: 'Feminino',
+                                groupValue: sex,
+                                onChanged: onChanged,
+                              ),
+                              BodyText(
+                                  text: AppLocalizations.of(context)!.female),
+                            ],
+                          ),
+                        ],
+                      );
+                    }
+                    return Row(
+                      children: [
+                        Radio(
+                          value: 'Masculino',
+                          groupValue: sex,
+                          onChanged: onChanged,
+                        ),
+                        BodyText(text: AppLocalizations.of(context)!.male),
+                        Radio(
+                          value: 'Feminino',
+                          groupValue: sex,
+                          onChanged: onChanged,
+                        ),
+                        BodyText(text: AppLocalizations.of(context)!.female),
+                      ],
+                    );
+                  })
             ],
           ),
         ),

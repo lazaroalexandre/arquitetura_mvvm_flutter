@@ -16,6 +16,31 @@ class GroupModalButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final bool isScreenNarrow = screenWidth < Scale.xxxl;
+
+    if (isScreenNarrow) {
+      return Column(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: ButtonDefault(
+              text: back,
+              onPressed: onPressedBack,
+            ),
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: ButtonDefault(
+              text: next,
+              onPressed: onPressedNext,
+              isDark: true,
+            ),
+          ),
+        ],
+      );
+    }
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [

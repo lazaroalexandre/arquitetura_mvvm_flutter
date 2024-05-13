@@ -36,26 +36,20 @@ class _ModalCreatedState extends State<ModalCreated> {
 
   @override
   Widget build(BuildContext context) {
-    return SuperModal(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SuperTitleText(
-            text: AppLocalizations.of(context)!.new_contact,
+    return ModalDefault(
+      title: AppLocalizations.of(context)!.new_contact,
+      content: 
+          FormUser(
+            formKey: _formKey,
+            name: _nameEC,
+            email: _emailEC,
+            job: _jobEC,
+            phone: _phoneEC,
+            sex: _sexEC,
+            onChanged: (value) => _sexEC.setSex(value.toString()),
           ),
-          const MediumSpace(),
-          Expanded(
-            child: FormUser(
-              formKey: _formKey,
-              name: _nameEC,
-              email: _emailEC,
-              job: _jobEC,
-              phone: _phoneEC,
-              sex: _sexEC,
-              onChanged: (value) => _sexEC.setSex(value.toString()),
-            ),
-          ),
-          GroupModalButtons(
+          actions: [
+ GroupModalButtons(
             back: AppLocalizations.of(context)!.back,
             next: AppLocalizations.of(context)!.save,
             onPressedBack: () => Navigator.of(context).pop(),
@@ -74,8 +68,9 @@ class _ModalCreatedState extends State<ModalCreated> {
               }
             },
           )
-        ],
-      ),
+          ],
+         
+
     );
   }
 }

@@ -1,27 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:arquitetura_flutter/uikit/atomic/molecules/texts/super_title_text.dart';
 import 'package:flutter/material.dart';
 
 class ModalDefault extends StatelessWidget {
-  final Widget child;
-  final double height;
-  final double width;
-  final double padding;
+  final String title;
+  final Widget content;
+  final List<Widget> actions;
   const ModalDefault({
     Key? key,
-    required this.child,
-    required this.height,
-    required this.width,
-    required this.padding,
+    required this.title,
+    required this.content,
+    required this.actions,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(
-        height: height,
-        width: width,
-        padding: EdgeInsets.all(padding),
-        child: child,
+    return AlertDialog(
+      title: SuperTitleText(
+        text: title,
       ),
+      content: content,
+      actions: actions,
     );
   }
 }

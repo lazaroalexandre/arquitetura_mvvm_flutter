@@ -43,7 +43,7 @@ class AppWidget extends StatelessWidget {
             valueListenable: homeController.themeSwitch,
             builder: (_, isDark, __) {
               return MaterialApp(
-                title: 'Flutter Demo',
+                title: 'Contatos do Homolazarus',
                 debugShowCheckedModeBanner: false,
                 theme: isDark ? darkTheme : ligthTheme,
                 navigatorObservers: [flutterGetItNavObserver],

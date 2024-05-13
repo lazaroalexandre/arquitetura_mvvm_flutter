@@ -16,35 +16,23 @@ class ConfirmUpdateUserModalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SmallModal(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SuperTitleText(
-                text: AppLocalizations.of(context)!.title_confirm_update,
-              ),
-              const MediumSpace(),
-              BodyText(
-                text: AppLocalizations.of(context)!.text_confirm_update,
-              )
-            ],
-          ),
-          GroupModalButtons(
-            back: AppLocalizations.of(context)!.cancel,
-            next: AppLocalizations.of(context)!.confirm,
-            onPressedBack: () => Navigator.of(context).pop(),
-            onPressedNext: () {
-              controller.putUser(userModel, userModel.id.toString());
-              Navigator.of(context).pop();
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
+    return ModalDefault(
+      title: AppLocalizations.of(context)!.title_confirm_update,
+      content: BodyText(
+        text: AppLocalizations.of(context)!.text_confirm_update,
       ),
+      actions: [
+        GroupModalButtons(
+          back: AppLocalizations.of(context)!.cancel,
+          next: AppLocalizations.of(context)!.confirm,
+          onPressedBack: () => Navigator.of(context).pop(),
+          onPressedNext: () {
+            controller.putUser(userModel, userModel.id.toString());
+            Navigator.of(context).pop();
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
     );
   }
 }

@@ -10,7 +10,7 @@
     "cancel": "Cancel",
     "back": "Back",
     "confirm": "Confirm",
-    "without_contact": "There are no registered contacts!",
+    "without_contact": "There are no registered contacts",
     "title_confirm_delete": "Are you sure you want to delete the contact from ",
     "text_confirm_delete": "Upon confirmation, all contact data will be deleted!\nIf you are not sure what you are about to do, click cancel, please.",
     "title_confirm_update": "Are you sure you want to save the changes?",
@@ -22,5 +22,6 @@
     "phone_min_validation": "The field must have at least 11 digits",
     "phone_max_validation": "The field must have a maximum of 11 digits",
     "contact_details": "Contact Detail",
-    "my_contacts": "My Contacts"
+    "my_contacts": "My Contacts",
+    "error_internal_server": "The server is not responding"
 }

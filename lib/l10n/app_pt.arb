@@ -10,7 +10,7 @@
     "cancel": "Cancelar",
     "back": "Voltar",
     "confirm": "Confirmar",
-    "without_contact": "Não existem contatos registrados!",
+    "without_contact": "Não existem contatos registrados",
     "title_confirm_delete": "Tem certeza que deseja apagar o contato de",
     "text_confirm_delete": "Ao confirmar, todos os dados do contato serão apagados!\nSe você não tiver certeza no que está prestes a fazer, clique em cancelar, por favor.",
     "title_confirm_update": "Tem certeza que deseja salvar as alterações?",
@@ -22,5 +22,7 @@
     "phone_min_validation": "O campo deve ter no mínimo 11 dígitos",
     "phone_max_validation": "O campo deve ter no máximo 11 dígitos",
     "contact_details": "Detalhes do Contato",
-    "my_contacts": "Meus Contatos"
+    "my_contacts": "Meus Contatos",
+    "error_internal_server": "O servidor não está respondendo"
+
 }

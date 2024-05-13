@@ -12,7 +12,4 @@ export 'texts/title_text.dart';
 export 'spaces/small_space.dart';
 export 'spaces/medium_space.dart';
 
-export 'modals/small_modal.dart';
-export 'modals/super_modal.dart';
-
 export 'buttons/group_modal_buttons.dart';

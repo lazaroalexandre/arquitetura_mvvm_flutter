@@ -52,52 +52,44 @@ class _ModalUpdateState extends State<ModalUpdate> {
 
   @override
   Widget build(BuildContext context) {
-    return SuperModal(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SuperTitleText(
-            text: AppLocalizations.of(context)!.contact_details,
-          ),
-          const MediumSpace(),
-          Expanded(
-            child: FormUser(
-              formKey: _formKey,
-              name: _nameEC,
-              email: _emailEC,
-              job: _jobEC,
-              phone: _phoneEC,
-              sex: _sexEC,
-              onChanged: (value) => _sexEC.setSex(
-                value.toString(),
-              ),
-            ),
-          ),
-          GroupModalButtons(
-            back:  AppLocalizations.of(context)!.back,
-            next:  AppLocalizations.of(context)!.save,
-            onPressedBack: () => Navigator.of(context).pop(),
-            onPressedNext: () {
-              final valid = _formKey.currentState?.validate() ?? false;
-              if (valid) {
-                final userModel = UserModel(
-                  id: widget.model.id,
-                  name: _nameEC.text,
-                  sex: _sexEC.selectSex.value,
-                  email: _emailEC.text,
-                  job: _jobEC.text,
-                  phone: _phoneEC.text.replaceAll(Mask.removeMask, ''),
-                );
-                showDialog(
-                  context: context,
-                  builder: (context) =>
-                      ConfirmUpdateUserModalWidget(userModel: userModel),
-                );
-              }
-            },
-          ),
-        ],
+    return ModalDefault(
+      title: AppLocalizations.of(context)!.contact_details,
+      content: FormUser(
+        formKey: _formKey,
+        name: _nameEC,
+        email: _emailEC,
+        job: _jobEC,
+        phone: _phoneEC,
+        sex: _sexEC,
+        onChanged: (value) => _sexEC.setSex(
+          value.toString(),
+        ),
       ),
+      actions: [
+        GroupModalButtons(
+          back: AppLocalizations.of(context)!.back,
+          next: AppLocalizations.of(context)!.save,
+          onPressedBack: () => Navigator.of(context).pop(),
+          onPressedNext: () {
+            final valid = _formKey.currentState?.validate() ?? false;
+            if (valid) {
+              final userModel = UserModel(
+                id: widget.model.id,
+                name: _nameEC.text,
+                sex: _sexEC.selectSex.value,
+                email: _emailEC.text,
+                job: _jobEC.text,
+                phone: _phoneEC.text.replaceAll(Mask.removeMask, ''),
+              );
+              showDialog(
+                context: context,
+                builder: (context) =>
+                    ConfirmUpdateUserModalWidget(userModel: userModel),
+              );
+            }
+          },
+        ),
+      ],
     );
   }
 }

@@ -16,35 +16,23 @@ class ConfirmDeleteUserModalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SmallModal(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SuperTitleText(
-                text:
-                    "${AppLocalizations.of(context)!.title_confirm_delete} ${userModel.name}?",
-              ),
-              const MediumSpace(),
-              BodyText(
-                text: AppLocalizations.of(context)!.text_confirm_delete,
-              ),
-            ],
-          ),
-          GroupModalButtons(
-            back: AppLocalizations.of(context)!.cancel,
-            next: AppLocalizations.of(context)!.confirm,
-            onPressedBack: () => Navigator.of(context).pop(),
-            onPressedNext: () {
-              controller.deleteUser(userModel.id.toString());
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
+    return ModalDefault(
+      title:
+          "${AppLocalizations.of(context)!.title_confirm_delete} ${userModel.name}?",
+      content: BodyText(
+        text: AppLocalizations.of(context)!.text_confirm_delete,
       ),
+      actions: [
+        GroupModalButtons(
+          back: AppLocalizations.of(context)!.cancel,
+          next: AppLocalizations.of(context)!.confirm,
+          onPressedBack: () => Navigator.of(context).pop(),
+          onPressedNext: () {
+            controller.deleteUser(userModel.id.toString());
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
     );
   }
 }
