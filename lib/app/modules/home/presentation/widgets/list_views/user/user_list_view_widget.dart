@@ -9,31 +9,31 @@ import 'package:provider/provider.dart';
 class UserListUserViewWidget extends StatelessWidget {
   const UserListUserViewWidget({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-  final userController = Provider.of<UserController>(context);
+    final userController = Provider.of<UserController>(context, listen: false);
     userController.getAllUsers();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Scale.xs),
-      child: AnimatedBuilder(
-        animation: userController,
-        builder: (_, __) {
-          if (userController.isLoading.value) {
+      child: Consumer<UserController>(
+        builder: (_, controller, __) {
+          if (controller.isLoading.value) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
-          if (userController.error.value.isNotEmpty) {
+          if (controller.error.value.isNotEmpty) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("assets/images/internal-server.png", height: Scale.xxl),
-                HeadlineText(text: AppLocalizations.of(context)!.error_internal_server),
+                Image.asset("assets/images/internal-server.png",
+                    height: Scale.xxl),
+                HeadlineText(
+                    text: AppLocalizations.of(context)!.error_internal_server),
               ],
             );
           }
-          if (userController.users.value.isEmpty) {
+          if (controller.users.value.isEmpty) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -44,9 +44,9 @@ class UserListUserViewWidget extends StatelessWidget {
             );
           }
           return ListView.builder(
-            itemCount: userController.users.value.length,
+            itemCount: controller.users.value.length,
             itemBuilder: (_, index) {
-              final UserModel model = userController.users.value[index];
+              final UserModel model = controller.users.value[index];
               return CardListTileWidget(model: model);
             },
           );
