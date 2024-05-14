@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:arquitetura_flutter/app/modules/home/viewmodels/change_theme_viewmodel.dart';
+import 'package:arquitetura_flutter/app/core/viewmodel/change_theme_viewmodel.dart';
 
 class HomeController extends ChangeNotifier {
   final ChangeThemeViewmodel changeThemeViewmodel;

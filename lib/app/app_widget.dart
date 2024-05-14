@@ -1,7 +1,7 @@
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service.dart';
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service_impl.dart';
-import 'package:arquitetura_flutter/app/modules/home/viewmodels/change_theme_viewmodel.dart';
+import 'package:arquitetura_flutter/app/core/viewmodel/change_theme_viewmodel.dart';
 import 'package:arquitetura_flutter/app/modules/home/home_module.dart';
 import 'package:arquitetura_flutter/l10n/l10n.dart';
 import 'package:arquitetura_flutter/uikit/uikit.dart';

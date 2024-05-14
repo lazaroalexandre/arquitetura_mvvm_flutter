@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/core/viewmodel/user_viewmodel.dart';
+import 'package:arquitetura_flutter/app/modules/home/viewmodels/user_viewmodel.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
