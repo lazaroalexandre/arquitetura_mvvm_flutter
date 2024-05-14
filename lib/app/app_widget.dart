@@ -29,6 +29,7 @@ class AppWidget extends StatelessWidget {
               ),
             ),
           ),
+          child: const HomePage(),
         ),
         ChangeNotifierProvider<HomeController>.value(
           value: HomeController(
