@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/core/repositories/local/local_store_service.dart';
+import 'package:arquitetura_flutter/app/core/services/local/local_store_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStoreServiceImpl implements LocalStoreService {
