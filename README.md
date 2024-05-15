@@ -2,19 +2,13 @@
 
 Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos de injeção de dependência com *GetIt* envolvida em uma organização de código modularizado, além da inserção de metodologias de design como o Atomic Design e internacionalização para suporte a diferentes idiomas no sistema.
+À medida que você explora as diferentes branches, encontrará a evolução de um **sistema web de controle de contatos**, utilizando o *ChangeNotifier* como gerenciador de estado e a injeção de dependências com ferramentas como *GetIt, Modular e Provider*.
 
-## GetIt
+Neste projeto, você poderá explorar conceitos que vão desde a **construção arquitetural MVVM**, incluindo *views, models, controllers e viewmodels*, até **design patterns** como *repositories e services*, além de **metodologias de design** como o *Atomic Design*. Ademais, serão abordadas configurações adicionais, como a **internacionalização** para suporte a diferentes idiomas no sistema.
 
-O GetIt é um pacote de gerenciamento de dependências que fornece uma maneira simples e eficaz de injetar dependências em seu aplicativo, permitindo uma melhor organização e testabilidade do código. Em conjunto com o pacote *flutter_getit*, o cliclo de vida do projeto se torna eficiente, permitindo um suporte robusto para controle de página, incluindo gerenciamento de rotas, e a flexibilidade para trabalhar com módulos. No projeto, o GetIt está injetando a depedência dos controllers não só em certas páginas, usando o *LazySingleton* para registrar uma nova instância somente quando solicitado pela primeira vez, como no caso do *UserController*, mas também em todo o sistema, usando o *Singleton* para registrar uma instância imediatamente quando a página é carregada, como no caso do *HomeController*. 
+As **versões finais** do sistema estão disponíveis nas branches *"feat/get_it"*, *"feat/provider"* e *"feat/modular"*.
 
-## Atomic Design
-
-O Atomic Design é uma metodologia para a criação de sistemas de design de interfaces de usuário, a fim de organizar componentes de UI em uma hierarquia. No projeto, o atomic design é encontrada na pasta atomic da biblioteca *uikit*, na qual é dividida em *atoms, molecules e organisms*. Além disso, a *uikit* fornece tokens e visual_entity que fazem parte do estilo padronizado do layout do sistema e que são fundamentais para a construção de componentes e widgets.
-
-## Internacionalização
-
-A Internacionalização é o processo de projetar e desenvolver um aplicativo de forma que ele possa ser facilmente adaptado para diferentes idiomas e regiões sem a necessidade de uma engenharia adicional. Em conjunto com o pacote *flutter_localizations*, o idioma do aplicativo é adapte de acordo com a lingua na qual a região que o sistema é acessado. No projeto, a internacionalização é gerenciada no diretório l10n e configurada no AppWidget, com o fito de fornecer traduções nos idiomas português (PT-BR) e inglês (ES-US).
+Por fim, caso queira compartilhar sugestões sobre o projeto, entre em contato pelo e-mail: lazaroalexandre.dev@gmail.com.
 
 ## Inicialização
 
@@ -23,7 +17,7 @@ Primeiramente, instale todas as configurações do flutter em sua máquina, caso
 Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
 
 - flutter pub get
-- flutter gen-l10n 
+- flutter gen-l10n *(Somente nas branches feat/get_it, feat/provider e feat/modular)*
 - flutter run -d chrome
 
 ## Configurações da API consumida
@@ -31,11 +25,19 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
  Na maioria das branches, utilizo uma a api do *[MokcAPI](https://mockapi.io/)* como um servidor de dados que é consumido pelo flutter.
  Caso a api que criei não esteja mais em uso ou você esteja recebendo erro de servidor, siga a passo para criar um novo modelo:
     
- *[Clique aqui para assistir o tutorial da API.](https://drive.google.com/file/d/17tk05ef3TeXuKXSsdQmhbiUxGCtkgQm1/view?usp=drive_link)*
+ *[Clique aqui para assistir o tutorial da API.](media/tutorial_api.mp4)*
 
 ## Referências
 
+*[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
+
+*[Flutter Modular | Flutterando](https://modular.flutterando.com.br/docs/intro/)*
+
 *[Flutter GetIt | Dart Packages](https://pub.dev/packages/flutter_getit)*
+
+*[Provider | Dart Packages](https://pub.dev/packages/provider)*
+
+*[Exemplo de Requisição http com pacote DIO | DIO - Leandro Santos](https://www.dio.me/articles/exemplo-de-requisicao-http-com-pacote-dio)*
 
 *[Create Multi Language App | Internationalization & Localization In Flutter - HeyFlutter.com](https://www.youtube.com/watch?v=zugxpAcbe4U)*
 
@@ -43,6 +45,12 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 
 *[AULÃO Flutter Web - Responsividade | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=UnAuTnR_ZM8)*
 
+*[MVVM no Flutter - Estrutura para iniciantes | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=WgadnZcujuc)*
+
+*[MASTERCLASS - Flutter, MobX, MVC e MVVM | balta.io - André Baltieri](https://www.youtube.com/watch?v=fsrJ_tNrOFk&t=2557s)*
+
 *[Tirando dúvidas com Rodrigo Rahman | Instagram - @rodrigorahman.dev](https://www.instagram.com/rodrigorahman.dev?igsh=MWFuYXE1MnNrMW4xMA==)*
 
 *[Estilos de Imagens | Storyset](https://storyset.com/)*
+
+*[PROVIDER, GERENCIA OU DISTRIBUI OS ESTADOS? | William Silva](https://youtu.be/kz1712L1-Co?si=kZfk0-gUZStmthTd)*
