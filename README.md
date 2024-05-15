@@ -8,7 +8,7 @@ Neste projeto, você poderá explorar conceitos que vão desde a **construção 
 
 As **versões finais** do sistema estão disponíveis nas branches *"feat/get_it"*, *"feat/provider"* e *"feat/modular"*.
 
-[Clique aqui para assistir a versão final do sistema.](https://drive.google.com/file/d/17s7VM8mEu6T87aJExEDxoqOu-PzCt9I-/view?usp=drive_link)
+*[Clique aqui para assistir a versão final do sistema.](https://drive.google.com/file/d/17s7VM8mEu6T87aJExEDxoqOu-PzCt9I-/view?usp=drive_link)*
 
 Por fim, caso queira compartilhar sugestões sobre o projeto, entre em contato pelo e-mail: lazaroalexandre.dev@gmail.com.
 
@@ -27,7 +27,7 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
  Na maioria das branches, utilizo uma a api do *[MokcAPI](https://mockapi.io/)* como um servidor de dados que é consumido pelo flutter.
  Caso a api que criei não esteja mais em uso ou você esteja recebendo erro de servidor, siga a passo para criar um novo modelo:
     
- *[Clique aqui para assistir o tutorial da API.](media/tutorial_api.mp4)*
+ *[Clique aqui para assistir o tutorial da API.](https://drive.google.com/file/d/17tk05ef3TeXuKXSsdQmhbiUxGCtkgQm1/view?usp=drive_link)*
 
 ## Referências
 
