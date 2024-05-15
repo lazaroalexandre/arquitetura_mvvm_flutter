@@ -2,7 +2,7 @@
 
 Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-À medida que você explora as diferentes branches, encontrará a evolução de um **sistema web de controle de contatos**, utilizando o *ChangeNotifier* como gerenciador de estado e a injeção de dependências com ferramentas como *GetIt, Modular e Provider*.
+À medida que você explora as diferentes branches, encontrará a evolução de um **sistema web de controle de contatos**, utilizando o *ChangeNotifier* como gerenciador de estado e *GetIt, Modular e Provider* como ferramentas de injeção de dependências.
 
 Neste projeto, você poderá explorar conceitos que vão desde a **construção arquitetural MVVM**, incluindo *views, models, controllers e viewmodels*, até **design patterns** como *repositories e services*, além de **metodologias de design** como o *Atomic Design*. Ademais, serão abordadas configurações adicionais, como a **internacionalização** para suporte a diferentes idiomas no sistema.
 
