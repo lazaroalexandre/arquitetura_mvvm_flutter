@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/interfaces/local_storage_interface.dart';
+import 'package:arquitetura_flutter/app/services/local_storage_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedLocalStoreService implements LocalStorageInterface {

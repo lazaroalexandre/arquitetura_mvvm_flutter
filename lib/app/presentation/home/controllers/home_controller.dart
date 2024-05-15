@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/interfaces/local_storage_interface.dart';
+import 'package:arquitetura_flutter/app/services/local_storage_interface.dart';
 import 'package:arquitetura_flutter/app/models/app_config_model.dart';
 import 'package:arquitetura_flutter/app/services/shared_local_store_service.dart';
 import 'package:flutter/cupertino.dart';
