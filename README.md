@@ -8,6 +8,8 @@ Neste projeto, você poderá explorar conceitos que vão desde a **construção 
 
 As **versões finais** do sistema estão disponíveis nas branches *"feat/get_it"*, *"feat/provider"* e *"feat/modular"*.
 
+[Clique aqui para assistir a versão final do sistema.](https://drive.google.com/file/d/17s7VM8mEu6T87aJExEDxoqOu-PzCt9I-/view?usp=drive_link)
+
 Por fim, caso queira compartilhar sugestões sobre o projeto, entre em contato pelo e-mail: lazaroalexandre.dev@gmail.com.
 
 ## Inicialização
