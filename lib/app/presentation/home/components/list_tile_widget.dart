@@ -15,14 +15,17 @@ class ListTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(model.avatar),
+        child: Text(
+        model.avatar,
+        style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+      ),
       ),
       title: Text(
         model.name,
         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
       subtitle: Text(
-        "${model.job} | ${model.sex} | ${model.email}",
+        "${model.job} | ${model.sex} | ${model.email} | ${model.phone}",
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
