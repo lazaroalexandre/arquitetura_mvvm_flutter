@@ -1,17 +1,22 @@
-# arquitetura_flutter
+# Arquitetura MVVM no Flutter
 
-A new Flutter project.
+Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-## Getting Started
+Nesta branch, são abordados conceitos arquiteturais de ViewModels ao intermediar a camada de Views e Models, separar algumas responsabilidades da Controller.
 
-This project is a starting point for a Flutter application.
+## ViewModel
 
-A few resources to get you started if this is your first Flutter project:
+As ViewModels atuam como um intermediário entre a View e o Model, facilitando a ligação de dados e a lógica de apresentação. Um ViewModel transforma os dados do Model em uma forma que a View pode usar diretamente, ajudando a manter a View desacoplada da lógica de negócios. No projeto, o ViewModel ficou responsável por toda comunicação da model e services, que será refletida na View atráves da controller, que por sua vez servirá como um intermediador da ViewModel.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Inicialização
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# arquitetura_flutter
+Primeiramente, instale todas as configurações do flutter em sua máquina, caso já não esteja instalada. Siga a documentação: https://docs.flutter.dev/get-started/install
+
+Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
+
+- flutter pub get
+- flutter run -d chrome
+
+## Referências
+
+*[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
