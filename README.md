@@ -24,7 +24,6 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
     
  *[Clique aqui para assistir o tutorial da API.](https://drive.google.com/file/d/17tk05ef3TeXuKXSsdQmhbiUxGCtkgQm1/view?usp=drive_link)*
 
-
 ## Referências
 
 *[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
