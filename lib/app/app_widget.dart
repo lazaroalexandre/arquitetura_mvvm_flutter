@@ -4,7 +4,7 @@ import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/ho
 import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
 import 'package:arquitetura_flutter/app/modules/home/presentation/pages/home_page.dart';
 import 'package:arquitetura_flutter/app/modules/home/repositories/user_repository_impl.dart';
-import 'package:arquitetura_flutter/app/modules/home/services/client/client_service_impl.dart';
+import 'package:arquitetura_flutter/app/core/services/client/client_service_impl.dart';
 import 'package:arquitetura_flutter/app/modules/home/viewmodels/user_viewmodel.dart';
 
 import 'package:arquitetura_flutter/l10n/l10n.dart';

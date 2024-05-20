@@ -2,7 +2,7 @@
 import 'package:arquitetura_flutter/app/core/api/routes_api.dart';
 import 'package:arquitetura_flutter/app/core/exceptions/exception_not_found.dart';
 import 'package:arquitetura_flutter/app/modules/home/models/user_model.dart';
-import 'package:arquitetura_flutter/app/modules/home/services/client/client_service.dart';
+import 'package:arquitetura_flutter/app/core/services/client/client_service.dart';
 import 'package:dio/dio.dart';
 
 import 'user_repository.dart';
