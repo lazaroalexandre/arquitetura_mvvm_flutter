@@ -1,4 +1,4 @@
-import 'package:arquitetura_flutter/app/modules/home/services/client/client_service.dart';
+import 'package:arquitetura_flutter/app/core/services/client/client_service.dart';
 import 'package:dio/dio.dart';
 
 class ClientServiceImpl implements ClientService {
