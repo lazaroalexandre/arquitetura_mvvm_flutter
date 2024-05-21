@@ -1,15 +1,15 @@
-import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/home_controller.dart';
+
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service.dart';
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service_impl.dart';
 import 'package:arquitetura_flutter/app/core/viewmodel/change_theme_viewmodel.dart';
 import 'package:arquitetura_flutter/app/modules/home/home_module.dart';
+import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:arquitetura_flutter/l10n/l10n.dart';
-import 'package:arquitetura_flutter/uikit/uikit.dart';
+import 'package:arquitetura_flutter/uikit/visual_identity/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
 
