@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:arquitetura_flutter/app/constants/route_api_constant.dart';
 import 'package:arquitetura_flutter/app/exceptions/exception_not_found.dart';
 import 'package:arquitetura_flutter/app/models/user_model.dart';
 import 'package:arquitetura_flutter/app/services/client/client_service.dart';
@@ -15,7 +16,7 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<List<UserModel>> getUsers() async {
     final Response response = await clientInterface
-        .get("https://64e50431c555638029140c0f.mockapi.io/user");
+        .get(RouteApiContant.userURL);
 
     if (response.statusCode == 200) {
       List<UserModel> users = [];
