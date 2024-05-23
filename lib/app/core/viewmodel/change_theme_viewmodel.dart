@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:arquitetura_flutter/app/core/constants/local_storage_contant.dart';
 import 'package:arquitetura_flutter/app/core/models/app_config_model.dart';
 import 'package:arquitetura_flutter/app/core/services/local/local_store_service.dart';
 
@@ -11,13 +12,13 @@ class ChangeThemeViewmodel {
   final AppConfigModel appConfigModel = AppConfigModel();
   
   Future init() async {
-    await shared.get("isDark").then((value) {
+    await shared.get(LocalStorageContant.themeColor).then((value) {
       if (value != null) appConfigModel.themeSwitch.value = value;
     });
   }
 
   changeValue(bool value) {
     appConfigModel.themeSwitch.value = value;
-    shared.put("isDark", value);
+    shared.put(LocalStorageContant.themeColor, value);
   }
 }
