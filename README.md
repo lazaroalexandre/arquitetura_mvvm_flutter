@@ -18,6 +18,10 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 
 - flutter pub get
 
+## Próxima Branch:
+
+[feat/repositories](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/services)
+
 ## Referências
 
 *[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
