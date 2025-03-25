@@ -1,22 +1,26 @@
-import 'package:arquitetura_flutter/app/services/local/local_store_service.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LocalStoreServiceImpl implements LocalStoreService {
+import 'package:arquitetura_flutter/app/services/local/local_storage_service.dart';
+
+class LocalStoreServiceImpl implements LocalStorageService {
+  final SharedPreferences sharedPreferences;
+  LocalStoreServiceImpl({
+    required this.sharedPreferences,
+  });
+
   @override
   Future delete(String key) async {
-    var shared = await SharedPreferences.getInstance();
-    return shared.remove(key);
+    return await sharedPreferences.remove(key);
   }
 
   @override
   Future get(String key) async {
-    var shared = await SharedPreferences.getInstance();
-    return shared.get(key);
+    return sharedPreferences.get(key);
   }
 
   @override
   Future put(String key, dynamic value) async {
-    var shared = await SharedPreferences.getInstance();
-    shared.setBool(key, value);
+    return await sharedPreferences.setBool(key, value);
   }
 }

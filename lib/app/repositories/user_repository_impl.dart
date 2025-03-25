@@ -1,36 +1,77 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:arquitetura_flutter/app/constants/route_api_constant.dart';
-import 'package:arquitetura_flutter/app/exceptions/exception_not_found.dart';
+import 'package:arquitetura_flutter/app/utils/messages/error_message.dart';
+import 'package:arquitetura_flutter/app/utils/api/route_api_constant.dart';
+import 'package:arquitetura_flutter/app/utils/exceptions/app_exception.dart';
 import 'package:arquitetura_flutter/app/models/user_model.dart';
 import 'package:arquitetura_flutter/app/services/client/client_service.dart';
 import 'package:dio/dio.dart';
+import 'package:result_dart/result_dart.dart';
 
 import 'user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  final ClientService clientInterface;
+  final ClientService clientService;
   UserRepositoryImpl({
-    required this.clientInterface,
+    required this.clientService,
   });
 
   @override
-  Future<List<UserModel>> getUsers() async {
-    final Response response = await clientInterface
-        .get(RouteApiContant.userURL);
+  AsyncResult<Unit> deleteUser(String id) async {
+    try {
+      await clientService.delete('${RouteApiContant.userURL}/$id');
+      return const Success(unit);
+    } on DioException catch (e) {
+      return Failure(ClientException(
+          message: ErrorMessage.delete,
+          code: e.response?.statusCode,
+          response: e.response));
+    }
+  }
 
-    if (response.statusCode == 200) {
-      List<UserModel> users = [];
-      final body = response.data;
-      body.map((user) {
-        final UserModel model = UserModel.fromMap(user);
-        users.add(model);
-      }).toList();
+  @override
+  AsyncResult<List<UserModel>> getUsers() async {
+    try {
+      final Response response =
+          await clientService.get(RouteApiContant.userURL);
+      final List<dynamic> data = response.data;
+      final List<UserModel> result = data
+          .map((item) => UserModel.fromMap(item as Map<String, dynamic>))
+          .toList();
+      return Success(result);
+    } on DioException catch (e) {
+      return Failure(ClientException(
+          message: ErrorMessage.get,
+          code: e.response?.statusCode,
+          response: e.response));
+    }
+  }
 
-      return users;
-    } else if (response.statusCode == 404) {
-      throw ExceptionNotFound(message: "A url não foi encontrada!");
-    } else {
-      throw Exception("Não foi possível carregar os contatos!");
+  @override
+  AsyncResult<UserModel> postUser(UserModel userModel) async {
+    try {
+      final Response response =
+          await clientService.post(RouteApiContant.userURL, userModel.toMap());
+      final result = UserModel.fromMap(response.data);
+      return Success(result);
+    } on DioException catch (e) {
+      return Failure(ClientException(
+          message: ErrorMessage.post,
+          code: e.response?.statusCode,
+          response: e.response));
+    }
+  }
+
+  @override
+  AsyncResult<UserModel> putUser(UserModel userModel, String id) async {
+    try {
+      final Response response = await clientService.put(
+          "${RouteApiContant.userURL}/$id", userModel.toMap());
+      final result = UserModel.fromMap(response.data);
+      return Success(result);
+    } on DioException catch (e) {
+      return Failure(ClientException(
+          message: ErrorMessage.put,
+          code: e.response?.statusCode,
+          response: e.response));
     }
   }
 }
