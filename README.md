@@ -1,8 +1,8 @@
 # Arquitetura MVVM no Flutter
 
-Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
+Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível**, **testável** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos arquiteturais de Models ao separar o modelo de negócio da Controller. Não houve alteração na View.
+Nesta branch, são abordados conceitos arquiteturais de Models.
 
 ## Model
 
@@ -15,7 +15,6 @@ Primeiramente, instale todas as configurações do flutter em sua máquina, caso
 Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
 
 - flutter pub get
-- flutter run -d chrome
 
 ## Referências
 
