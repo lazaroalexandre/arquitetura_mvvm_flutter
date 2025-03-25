@@ -1,12 +1,14 @@
 # Arquitetura MVVM no Flutter
 
-Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
+Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível**, **testável** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos de design patterns, utilizando o padrão Service para salvar o estado do tema do sistema ao clicar no switch, mesmo que a tela seja atualizada.
+Nesta branch, são abordados conceitos de design patterns, utilizando o padrão Service.
 
 ## Service
 
-Os Services são componentes que encapsulam a lógica de negócios que não pertence ao Model ou à View. Eles podem ser usados para operações que envolvem lógica complexa, mantendo o código organizado e a lógica de negócios desacoplada das camadas de apresentação e persistência. No projeto, o Service é utilizado para persistir dados pela interface e é implementado com o pacote *shared_preferences*. Este pacote poderá ser trocado por outro que também armazena dados em local storage. O Service implementado é integrado na Controller, servindo para guardar o estado do tema alterado pelo switch, mesmo atualizadando a paǵina.
+Os services são componentes responsáveis por encapsular a lógica de comunicação com fontes externas de dados, como APIs, armazenamento local ou outros sistemas, oferecendo uma interface abstraída para que o repositório ou outros componentes da aplicação interajam com esses dados de forma modular e desacoplada. Eles funcionam como camadas intermediárias entre a aplicação e as fontes de dados externas, facilitando a manutenção e os testes.
+
+No projeto, foram utilizados dois services: o LocalStorageService, que implementa o pacote *shared_preferences* para a persistência de dados locais, e o ClientService, que implementa o pacote *dio* para lidar com operações de rede (HTTP). . Nesse contexto, esses services serão essenciais tanto para a persistência do tema escolhido quanto para a comunicação e manipulação de dados de contato de usuário.
 
 ## Inicialização
 
@@ -15,7 +17,6 @@ Primeiramente, instale todas as configurações do flutter em sua máquina, caso
 Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
 
 - flutter pub get
-- flutter run -d chrome
 
 ## Referências
 
