@@ -6,7 +6,9 @@ Nesta branch, são abordados conceitos arquiteturais de Models.
 
 ## Model
 
-Os Models representam os dados da aplicação e a lógica de negócios. Eles são responsáveis por gerenciar as regras de negócio, validações e comunicação com o banco de dados. No projeto, foi implementado um Model chamado AppConfigModel, que possui um único atributo com valor inicializado como false, e um Model chamado UserModel, que será utilizado na evolução do projeto como um modelo de contato.
+Os models representam as estruturas de dados que são manipuladas em toda a aplicação, incluindo a lógica de negócios e validações. No MVVM com flutter, ao contrário do que é visto em framworks backends, os models não devem acessar o banco de dados diretamente. Essa tarefa fica para serviços ou repositórios, garantindo a separação de responsabilidades.
+
+No projeto, o UserModel foi criado para representar um contato e será aprimorado ao longo do desenvolvimento.
 
 ## Inicialização
 
@@ -15,6 +17,10 @@ Primeiramente, instale todas as configurações do flutter em sua máquina, caso
 Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
 
 - flutter pub get
+
+## Próxima Branch:
+
+[feat/services](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/services)
 
 ## Referências
 
