@@ -22,7 +22,7 @@ Por fim, foi adicionado um workflow de testes, para tornar os testes automatizad
 
 *.github/workflows/tests.yaml*
 
-[Github Actions](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/actions/)
+[Github Actions](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/actions)
 
 
 ## Inicialização
