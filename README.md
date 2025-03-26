@@ -8,7 +8,11 @@ Nesta branch, são abordados conceitos de design patterns, utilizando o padrão 
 
 Os services são componentes responsáveis por encapsular a lógica de comunicação com fontes externas de dados, como APIs, armazenamento local ou outros sistemas, oferecendo uma interface abstraída para que o repositório ou outros componentes da aplicação interajam com esses dados de forma modular e desacoplada. Eles funcionam como camadas intermediárias entre a aplicação e as fontes de dados externas, facilitando a manutenção e os testes.
 
-No projeto, foram utilizados dois services: o LocalStorageService, que implementa o pacote *shared_preferences* para a persistência de dados locais, e o ClientService, que implementa o pacote *dio* para lidar com operações de rede (HTTP). . Nesse contexto, esses services serão essenciais tanto para a persistência do tema escolhido quanto para a comunicação e manipulação de dados de contato de usuário.
+No projeto, foram utilizados três services: o *LocalStorageService*, que implementa o pacote *shared_preferences* para a persistência de dados locais, o *ClientService*, que implementa o pacote *dio* para lidar com operações de rede (HTTP), e o *AppMessageService*, que implementa o pacote *another_flushbar* para exibir mensagens de feedback ao usuário. Nesse contexto, esses services serão essenciais não só para a persistência do tema escolhido, como também para a comunicação e manipulação de dados de contato de usuário, além de notificar mensagens de sucesso e erro.
+
+**Observação**
+
+Foi criado o diretório chamato utils, com o fito de armazenar funções, classes e constantes reutilizáveis que não pertencem diretamente a uma camada específica do projeto, mas que são úteis em várias partes da aplicação. Nele, você encontra mensagens, exceções e rotas de api, por exemplo.
 
 ## Inicialização
 

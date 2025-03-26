@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.5.2
   dio: ^5.8.0+1
+  another_flushbar: ^1.12.30
 
 
 dev_dependencies:
