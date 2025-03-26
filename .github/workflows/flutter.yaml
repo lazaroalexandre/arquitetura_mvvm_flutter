@@ -14,14 +14,18 @@ jobs:
     name: Run Flutter Unit Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Get Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '21.x'
 
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: stable  
-          channel: stable
+          channel: 'stable'
 
       - name: Install Dependencies
         run: flutter pub get
