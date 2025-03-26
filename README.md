@@ -47,6 +47,10 @@ Se deseja consumir uma api backend criada por você ou por uma empresa, aconselh
 
 Não é ideal deixar dados sensíveis público no frontend, como o de endpoits de uma api, já que compromete a segurança do sistema. Estou deixando público apenas por fins educacionais. Dessa forma, caso queira deixar seu sistema mais protegido, indico o uso do pacote *[envied](https://pub.dev/packages/envied)* e *[envied_generator](https://pub.dev/packages/envied_generator)*.
 
+## Próxima Branch:
+
+[feat/viewmodels](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/viewmodels)
+
 ## Referências
 
 *[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
