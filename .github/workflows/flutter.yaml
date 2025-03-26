@@ -1,0 +1,33 @@
+name: Flutter Unit Tests
+
+on:
+  push:
+    branches:
+      - "**"  
+  pull_request:
+    branches:
+      - "main"
+  workflow_dispatch:  
+
+jobs:
+  Flutter_Tests:
+    name: Run Flutter Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: stable  
+          channel: stable
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Analyze Code
+        run: flutter analyze
+
+      - name: Run Tests
+        run: flutter test
