@@ -1,5 +1,6 @@
 import 'package:arquitetura_flutter/app/models/user_model.dart';
 import 'package:arquitetura_flutter/app/repositories/user_repository.dart';
+import 'package:arquitetura_flutter/app/services/message/app_message_service.dart';
 import 'package:arquitetura_flutter/app/utils/exceptions/app_exception.dart';
 import 'package:arquitetura_flutter/app/utils/messages/error_message.dart';
 import 'package:arquitetura_flutter/app/viewmodels/user_viewmodel.dart';
@@ -9,14 +10,20 @@ import 'package:result_dart/result_dart.dart';
 
 class UserRepositoryMock extends Mock implements UserRepository {}
 
+class AppMessageServiceMock extends Mock implements AppMessageService {}
+
 void main() {
   late UserRepositoryMock userRepositoryMock;
+  late AppMessageServiceMock appMessageServiceMock;
   late UserViewmodel userViewmodel;
   late List<UserModel> databaseMock;
 
   setUp(() {
     userRepositoryMock = UserRepositoryMock();
-    userViewmodel = UserViewmodel(userRepository: userRepositoryMock);
+    appMessageServiceMock = AppMessageServiceMock();
+    userViewmodel = UserViewmodel(
+        userRepository: userRepositoryMock,
+        appMessageService: appMessageServiceMock);
     databaseMock = [
       UserModel(
           id: '1',
@@ -95,32 +102,35 @@ void main() {
           (_) async => Success(user),
         );
 
+        when(() => appMessageServiceMock.showMessageSuccess(any())).thenAnswer(
+          (invocation) async => {},
+        );
+
         await userViewmodel.create(user);
 
         expect(userViewmodel.isLoading.value, isFalse);
 
         verify(() => userRepositoryMock.postUser(user)).called(1);
+        verify(() => appMessageServiceMock.showMessageSuccess(any())).called(1);
+      });
+
+      test("Deve falhar ao registrar um novo contato.", () async {
+        when(() => userRepositoryMock.postUser(user)).thenAnswer(
+            (_) async => Failure(ClientException(message: ErrorMessage.post)));
+
+        when(() => appMessageServiceMock.showMessageError(any())).thenAnswer(
+          (invocation) async => {},
+        );
+
+        await userViewmodel.create(user);
+
+        expect(userViewmodel.isLoading.value, isFalse);
+
+        verify(() => userRepositoryMock.postUser(user)).called(1);
+        verify(() => appMessageServiceMock.showMessageError(any())).called(1);
       });
     });
 
-    /* test("Deve falhar ao registrar um novo contato.", () async {
-        final response = DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.badResponse,
-            response:
-                Response(requestOptions: RequestOptions(), statusCode: 500));
-
-        when(() => clientMock.post(any(), any())).thenThrow(response);
-
-        final result = await userRepository.postUser(user);
-
-        expect(result.isError(), isTrue);
-        expect(result.getOrNull(), isNull);
-
-        verify(() => clientMock.post(any(), any())).called(1);
-      });
-    }); */
-/* 
     group("Testando o PutUser.", () {
       final user = UserModel(
           id: '2',
@@ -139,73 +149,72 @@ void main() {
         phone: '84992017115',
       );
       test("Deve atualizar um contato já existente com sucesso.", () async {
-        final response = Response(
-          requestOptions: RequestOptions(),
-          data: user.toMap(),
+        when(() => userRepositoryMock.putUser(user, user.id!)).thenAnswer(
+          (_) async => Success(user),
         );
 
-        when(() => clientMock.put(any(), any())).thenAnswer(
-          (_) async => response,
+        when(() => appMessageServiceMock.showMessageSuccess(any())).thenAnswer(
+          (invocation) async => {},
         );
 
-        final result = await userRepository.putUser(user, user.id!);
+        await userViewmodel.update(user, user.id!);
 
-        expect(result.isSuccess(), isTrue);
         expect(
             databaseMock.any(
               (element) => element.id == user.id,
             ),
             isTrue);
-        expect(result.getOrNull(), isA<UserModel>());
-        expect(result.getOrNull(), isNotNull);
-        expect(result.getOrNull()?.id, isNotNull);
+        expect(userViewmodel.isLoading.value, isFalse);
 
-        verify(() => clientMock.put(any(), any())).called(1);
+        verify(() => userRepositoryMock.putUser(user, user.id!)).called(1);
+        verify(() => appMessageServiceMock.showMessageSuccess(any())).called(1);
       });
 
       test("Deve falhar ao atualizar um contato inexistente.", () async {
-        final response = DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.badResponse,
-            response:
-                Response(requestOptions: RequestOptions(), statusCode: 404));
+        when(() => userRepositoryMock.putUser(userNotExists, userNotExists.id!))
+            .thenAnswer(
+          (_) async => Failure(ClientException(message: ErrorMessage.put)),
+        );
 
-        when(() => clientMock.put(any(), any())).thenThrow(response);
+        when(() => appMessageServiceMock.showMessageError(any())).thenAnswer(
+          (invocation) async => {},
+        );
 
-        final result =
-            await userRepository.putUser(userNotExists, userNotExists.id!);
+        await userViewmodel.update(userNotExists, userNotExists.id!);
 
-        expect(result.isError(), isTrue);
         expect(
             databaseMock.any(
               (element) => element.id == userNotExists.id,
             ),
             isFalse);
-        expect(result.getOrNull(), isNull);
+        expect(userViewmodel.isLoading.value, isFalse);
 
-        verify(() => clientMock.put(any(), any())).called(1);
+        verify(() =>
+                userRepositoryMock.putUser(userNotExists, userNotExists.id!))
+            .called(1);
+        verify(() => appMessageServiceMock.showMessageError(any())).called(1);
       });
 
       test("Deve falhar ao atualizar um contato existente.", () async {
-        final response = DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.badResponse,
-            response:
-                Response(requestOptions: RequestOptions(), statusCode: 500));
+        when(() => userRepositoryMock.putUser(user, user.id!)).thenAnswer(
+          (_) async => Failure(ClientException(message: ErrorMessage.put)),
+        );
 
-        when(() => clientMock.put(any(), any())).thenThrow(response);
+        when(() => appMessageServiceMock.showMessageError(any())).thenAnswer(
+          (invocation) async => {},
+        );
 
-        final result = await userRepository.putUser(user, user.id!);
+        await userViewmodel.update(user, user.id!);
 
-        expect(result.isError(), isTrue);
         expect(
             databaseMock.any(
               (element) => element.id == user.id,
             ),
             isTrue);
-        expect(result.getOrNull(), isNull);
+        expect(userViewmodel.isLoading.value, isFalse);
 
-        verify(() => clientMock.put(any(), any())).called(1);
+        verify(() => userRepositoryMock.putUser(user, user.id!)).called(1);
+        verify(() => appMessageServiceMock.showMessageError(any())).called(1);
       });
     });
 
@@ -214,67 +223,70 @@ void main() {
 
       const userIdNotExists = '5';
       test("Deve apagar um contato já existente com sucesso.", () async {
-        when(() => clientMock.delete(any())).thenAnswer(
-          (_) async => {},
+        when(() => userRepositoryMock.deleteUser(userId)).thenAnswer(
+          (_) async => const Success(unit),
         );
 
-        final result = await userRepository.deleteUser(userId);
+        when(() => appMessageServiceMock.showMessageSuccess(any())).thenAnswer(
+          (invocation) async => {},
+        );
 
-        expect(result.isSuccess(), isTrue);
-        expect(userId, isNotNull);
+        await userViewmodel.remove(userId);
+
         expect(
             databaseMock.any(
               (element) => element.id == userId,
             ),
             isTrue);
-        expect(result.getOrNull(), unit);
+        expect(userViewmodel.isLoading.value, isFalse);
 
-        verify(() => clientMock.delete(any())).called(1);
+        verify(() => userRepositoryMock.deleteUser(userId)).called(1);
+        verify(() => appMessageServiceMock.showMessageSuccess(any())).called(1);
       });
 
       test("Deve falhar ao apagar um contato inexistente.", () async {
-        final response = DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.badResponse,
-            response:
-                Response(requestOptions: RequestOptions(), statusCode: 404));
+        when(() => userRepositoryMock.deleteUser(userIdNotExists)).thenAnswer(
+          (_) async => Failure(ClientException(message: ErrorMessage.delete)),
+        );
 
-        when(() => clientMock.delete(any())).thenThrow(response);
+        when(() => appMessageServiceMock.showMessageError(any())).thenAnswer(
+          (invocation) async => {},
+        );
 
-        final result = await userRepository.deleteUser(userIdNotExists);
+        await userViewmodel.remove(userIdNotExists);
 
-        expect(result.isError(), isTrue);
         expect(
             databaseMock.any(
               (element) => element.id == userIdNotExists,
             ),
             isFalse);
-        expect(result.getOrNull(), isNull);
+        expect(userViewmodel.isLoading.value, isFalse);
 
-        verify(() => clientMock.delete(any())).called(1);
+        verify(() => userRepositoryMock.deleteUser(userIdNotExists)).called(1);
+        verify(() => appMessageServiceMock.showMessageError(any())).called(1);
       });
 
       test("Deve falhar ao apagar um contato existente.", () async {
-        final response = DioException(
-            requestOptions: RequestOptions(),
-            type: DioExceptionType.badResponse,
-            response:
-                Response(requestOptions: RequestOptions(), statusCode: 500));
+        when(() => userRepositoryMock.deleteUser(userId)).thenAnswer(
+          (_) async => Failure(ClientException(message: ErrorMessage.delete)),
+        );
 
-        when(() => clientMock.delete(any())).thenThrow(response);
+        when(() => appMessageServiceMock.showMessageError(any())).thenAnswer(
+          (invocation) async => {},
+        );
 
-        final result = await userRepository.deleteUser(userId);
+        await userViewmodel.remove(userId);
 
-        expect(result.isError(), isTrue);
         expect(
             databaseMock.any(
               (element) => element.id == userId,
             ),
             isTrue);
-        expect(result.getOrNull(), isNull);
+        expect(userViewmodel.isLoading.value, isFalse);
 
-        verify(() => clientMock.delete(any())).called(1);
+        verify(() => userRepositoryMock.deleteUser(userId)).called(1);
+        verify(() => appMessageServiceMock.showMessageError(any())).called(1);
       });
-    }); */
+    });
   });
 }

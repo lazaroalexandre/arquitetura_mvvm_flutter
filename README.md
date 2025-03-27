@@ -1,12 +1,25 @@
 # Arquitetura MVVM no Flutter
 
-Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos arquiteturais de ViewModels ao intermediar a camada de Views e Models, separar algumas responsabilidades da Controller.
+Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível**, **testável** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
+
+Nesta branch, são abordados conceitos arquiteturais de ViewModels.
 
 ## ViewModel
 
-As ViewModels atuam como um intermediário entre a View e o Model, facilitando a ligação de dados e a lógica de apresentação. Um ViewModel transforma os dados do Model em uma forma que a View pode usar diretamente, ajudando a manter a View desacoplada da lógica de negócios. No projeto, o ViewModel ficou responsável por toda comunicação da model e services, que será refletida na View atráves da controller, que por sua vez servirá como um intermediador da ViewModel.
+A ViewModel é um intermediário entre a camada de domínio (Model) e a camada de apresentação (View). Ela processa os dados antes de expô-los à View e fornece métodos para interação do usuário, garantindo um desacoplamento adequado entre a interface e a lógica de negócios.
+
+No projeto, o UserViewmodel é responsável por toda comunicação da model, por meio da implementação do UserRepository e do AppMessageService.
+
+**Observação**
+
+Foi criado testes de unidade do UserViewmodel. Você pode acessá-los pelo seguinte caminho:
+
+*test/app/viewmodels/user_viewmodel_test.dart*
+
+Por fim, confira processo dos testes automatizados no Github Actions.
+
+[Github Actions](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/actions)
 
 ## Inicialização
 
@@ -15,7 +28,6 @@ Primeiramente, instale todas as configurações do flutter em sua máquina, caso
 Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
 
 - flutter pub get
-- flutter run -d chrome
 
 ## Próxima Branch:
 

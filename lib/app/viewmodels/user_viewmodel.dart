@@ -1,11 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:arquitetura_flutter/app/utils/messages/error_message.dart';
+import 'package:arquitetura_flutter/app/utils/messages/success_message.dart';
+import 'package:flutter/material.dart';
+
 import 'package:arquitetura_flutter/app/models/user_model.dart';
 import 'package:arquitetura_flutter/app/repositories/user_repository.dart';
-import 'package:flutter/material.dart';
+import 'package:arquitetura_flutter/app/services/message/app_message_service.dart';
 
 class UserViewmodel {
   final UserRepository userRepository;
+  final AppMessageService appMessageService;
   UserViewmodel({
     required this.userRepository,
+    required this.appMessageService,
   });
 
   final users = ValueNotifier<List<UserModel>>([]);
@@ -44,7 +51,15 @@ class UserViewmodel {
 
     final result = await userRepository.postUser(userModel);
 
-    result.fold((success) {}, (failure) => failure);
+    result.fold(
+      (success) => appMessageService.showMessageSuccess(
+        SuccessMessage.getMessageUserContactRegister(success.name),
+      ),
+      (failure) => appMessageService.showMessageError(
+        SuccessMessage.getMessageUserContactRegister(
+            "${ErrorMessage.post} ${ErrorMessage.tryAgainLater}"),
+      ),
+    );
 
     isLoading.value = false;
   }
@@ -54,7 +69,15 @@ class UserViewmodel {
 
     final result = await userRepository.deleteUser(id);
 
-    result.fold((success) {}, (failure) => failure);
+    result.fold(
+      (success) => appMessageService.showMessageSuccess(
+        SuccessMessage.userContactDeleteMessage,
+      ),
+      (failure) => appMessageService.showMessageError(
+        SuccessMessage.getMessageUserContactRegister(
+            "${ErrorMessage.delete} ${ErrorMessage.tryAgainLater}"),
+      ),
+    );
 
     isLoading.value = false;
   }
@@ -64,7 +87,15 @@ class UserViewmodel {
 
     final result = await userRepository.putUser(userModel, id);
 
-    result.fold((success) {}, (failure) => failure);
+    result.fold(
+      (success) => appMessageService.showMessageSuccess(
+        SuccessMessage.getMessageUserContactUpdate(success.name),
+      ),
+      (failure) => appMessageService.showMessageError(
+        SuccessMessage.getMessageUserContactUpdate(
+            "${ErrorMessage.put} ${ErrorMessage.tryAgainLater}"),
+      ),
+    );
 
     isLoading.value = false;
   }
