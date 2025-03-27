@@ -24,7 +24,7 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 
 ## Próxima Branch:
 
-[feat/viewmodels](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/viewmodels)
+[feat/internationalization](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/internationalization?tab=readme-ov-file)
 
 **Observação**
 
