@@ -3,13 +3,13 @@
 
 Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível**, **testável** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos de criação de compentes de interface, desenvolvendo uma UIkit.
+Nesta branch, são abordados conceitos de internacionalização.
 
-## UIKit
+## Internacionalização
 
-A UIKit é um kit de ferramentas de design responsável por definir e organizar os componentes visuais reutilizáveis dentro do sistema. Ela cria a base de design consistente para a interface, desde elementos básicos até a estrutura final das páginas, garantindo uma experiência de usuário coesa e escalável em toda a aplicação.
+A internacionalização é responsável por gerenciar a tradução e adaptação de textos dentro do sistema, permitindo que a aplicação suporte múltiplos idiomas de forma dinâmica. Ela garante que os conteúdos exibidos se ajustem ao idioma e às convenções regionais do usuário, proporcionando uma experiência acessível e personalizada.
 
-No projeto, utilizei a metodologia Atomic Design, a fim de organiza interfaces em componentes hierárquicos reutilizáveis.
+No projeto, utilizei o *flutter_localizations* e o *flutter gen-l10n* para gerar automaticamente os arquivos de tradução com base nos recursos .arb para o idioma pt-br e en-us, tornando a implementação escalável e de fácil manutenção. Por fim, os arquivos estão localizado no diretório *lib/l10n*.
 
 ## Inicialização
 
@@ -21,19 +21,12 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 - cd uikit/
 - flutter pub get
 - cd ..
+- flutter gen-l10n
 
 ## Próxima Branch:
 
-[feat/viewmodels](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/viewmodels)
-
-**Observação**
-
-As branches feat/uikit e feat/internationalization são opcionais em projetos reais, mas possuem grande valor educacional neste projeto.
-
-Se preferir focar no aprendizado arquitetural, avance diretamente para a branch feat/views.
-
-[feat/views](https://)
+[feat/views](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/viewmodels)
 
 ## Referências
 
-*[Atomic Design: o que é, como surgiu e sua importância para a criação do Design System | Medium - Jessica Araujo](https://medium.com/pretux/atomic-design-o-que-%C3%A9-como-surgiu-e-sua-import%C3%A2ncia-para-a-cria%C3%A7%C3%A3o-do-design-system-e3ac7b5aca2c)*
+*[Create Multi Language App | Internationalization & Localization In Flutter - HeyFlutter.com](https://www.youtube.com/watch?v=zugxpAcbe4U)*
