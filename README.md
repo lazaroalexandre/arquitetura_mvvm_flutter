@@ -31,7 +31,15 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 
 ## Próxima Branch:
 
-[feat/viewmodels](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/viewmodels)
+[feat/uikit](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/uikit)
+
+**Observação:**
+
+As branches feat/uikit e feat/internationalization são opcionais em projetos reais, mas possuem grande valor educacional neste projeto.
+
+Se preferir focar no aprendizado arquitetural, avance diretamente para a branch feat/views.
+
+[feat/views](https://)
 
 ## Referências
 
