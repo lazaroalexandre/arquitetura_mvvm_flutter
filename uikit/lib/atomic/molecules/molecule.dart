@@ -13,3 +13,5 @@ export 'spaces/small_space.dart';
 export 'spaces/medium_space.dart';
 
 export 'buttons/group_modal_buttons.dart';
+
+export 'radios/radio_label.dart';

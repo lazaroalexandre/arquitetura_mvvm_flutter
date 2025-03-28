@@ -32,7 +32,7 @@ As branches feat/uikit e feat/internationalization são opcionais em projetos re
 
 Se preferir focar no aprendizado arquitetural, avance diretamente para a branch feat/views.
 
-[feat/views](https://)
+[feat/views](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/views?tab=readme-ov-file)
 
 ## Referências
 

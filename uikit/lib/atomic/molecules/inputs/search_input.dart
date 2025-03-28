@@ -13,21 +13,24 @@ class SearchInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-        suffixIcon: const Icon(
-          Icons.search,
-          size: Scale.sm,
-        ),
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(Scale.xl),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: Scale.md, vertical: Scale.xs),
+      child: TextFormField(
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+          suffixIcon: const Icon(
+            Icons.search,
+            size: Scale.sm,
           ),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(Scale.xl),
+            ),
+          ),
+          hintText: hintText,
         ),
-        hintText: hintText,
+        onChanged: onChanged,
       ),
-      onChanged: onChanged,
     );
   }
 }
