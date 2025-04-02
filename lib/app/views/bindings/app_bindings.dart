@@ -6,9 +6,9 @@ import 'package:arquitetura_flutter/app/services/local/local_storage_service.dar
 import 'package:arquitetura_flutter/app/services/local/local_store_service_impl.dart';
 import 'package:arquitetura_flutter/app/services/message/app_message_service.dart';
 import 'package:arquitetura_flutter/app/services/message/app_message_service_impl.dart';
+import 'package:arquitetura_flutter/app/utils/navigator/navigator_global.dart';
 import 'package:arquitetura_flutter/app/views/modules/home/controllers/theme_controller.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class AppBindings extends ApplicationBindings {
@@ -26,7 +26,7 @@ class AppBindings extends ApplicationBindings {
         ),
         Bind.singleton<AppMessageService>(
           (i) => AppMessageServiceImpl(
-            navigatorKey: GlobalKey<NavigatorState>(),
+            navigatorKey: NavigatorGlobal.navigatorKey,
           ),
         ),
         Bind.singleton<UserRepository>(

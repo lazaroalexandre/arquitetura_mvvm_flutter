@@ -11,18 +11,19 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final userController = Injector.get<UserController>();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarWidget(),
         body: Column(
           children: [
-            SearchInput(
-              hintText: AppLocalizations.of(context)!.search,
-              onChanged: (value) {
-                userController.filterUsers(value);
-              },
+            ValueListenableBuilder(
+              valueListenable: userController.users,
+              builder: (context, value, child) => SearchInput(
+                hintText: AppLocalizations.of(context)!.search,
+                onChanged: userController.filterUsers,
+              ),
             ),
             Expanded(child: UserListUserViewWidget()),
           ],

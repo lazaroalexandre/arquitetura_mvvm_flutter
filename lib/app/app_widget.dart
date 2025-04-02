@@ -1,3 +1,4 @@
+import 'package:arquitetura_flutter/app/utils/navigator/navigator_global.dart';
 import 'package:arquitetura_flutter/app/views/bindings/app_bindings.dart';
 import 'package:arquitetura_flutter/app/views/modules/home/controllers/theme_controller.dart';
 import 'package:arquitetura_flutter/app/views/modules/home/home_module.dart';
@@ -30,6 +31,7 @@ class AppWidget extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            navigatorKey: NavigatorGlobal.navigatorKey,
             theme: value ? darkTheme : ligthTheme,
             navigatorObservers: [flutterGetItNavObserver],
             supportedLocales: L10n.all,

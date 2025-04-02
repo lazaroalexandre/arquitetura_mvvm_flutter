@@ -10,7 +10,7 @@ class UserController extends ChangeNotifier {
     required UserViewmodel viewmodel,
   }) : _viewmodel = viewmodel;
 
-  ValueNotifier<List<UserModel>> get users => _viewmodel.users;
+  ValueNotifier<List<UserModel>> get users => _viewmodel.filterUsers;
 
   ValueNotifier<bool> get isLoading => _viewmodel.isLoading;
 

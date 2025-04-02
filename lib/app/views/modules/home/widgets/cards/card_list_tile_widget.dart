@@ -41,8 +41,7 @@ class CardListTileWidget extends StatelessWidget {
           name: userModel.name,
           id: userModel.id!,
           onPressedNext: () {
-            userController.putUser(userModel, userModel.id.toString());
-            Navigator.of(context).pop();
+            userController.deleteUser(userModel.id.toString());
             Navigator.of(context).pop();
           },
           cancel: AppLocalizations.of(context)!.cancel,
