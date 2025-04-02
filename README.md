@@ -3,21 +3,7 @@
 
 Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível**, **testável** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos arquiteturais relacionados à camada de View.
-
-## View
-
-As Views são componentes da arquitetura de software responsáveis pela apresentação dos dados. Elas constituem a interface com a qual os usuários interagem. 
-
-No projeto, dentro da views foi criado um diretório para os bindings globais, utilizando os pacotes *get_it* e *flutter_getit* como injetor e modularizador de depedências, além do diretório modules, no qual separa modulos de funcionalidades. 
-
-Dentro de cada modulo, é criado até 3 (três) diretórios, são eles: controllers, widgets e pages. 
-
-Os controllers contém arquivos responsáveis pelo gerenciamento de estados e comportamentos, que serão refletidas nos widgets, além de mudanças imediatas no sistema. No projeto foi utilizado *ChangeNotifier* como gerenciador de estado no controle de usuários, temas e comportamentos de valores de sexo no formulário de contatos.
-
-Os widgets contém arquivos que armazenam componentes reutilizáveis específicos do módulo, garantindo modularidade e organização do código.
-
-Os pages contém as telas principais do módulo, organizando a estrutura da interface.
+Você pode explorar as branches para entender como construí um sistema de contatos seguindo a abordagem arquitetural MVVM, começando pela branch *[feat/models](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/models)*.
 
 ## Inicialização
 
@@ -32,18 +18,39 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 - flutter gen-l10n
 - flutter run -d chrome
 
-## Próximas Branches:
-
-Criei duas branches opcionais para demonstrar diferentes abordagens na injeção de dependências, uma utilizando o *Provider* e outra utilizando o *Flutter Modular*.
-
-[feat/provider](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/provider)
-
-[feat/modular](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/modular)
-
 ## Referências
+
+*[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
+
+
+*[Semana do Flutter - Testes de Unidade | Jacob Moura](https://www.youtube.com/watch?v=zlYQe-9QMug&list=PLlBnICoI-g-etEtbvgDnO40SYKOSktCj4)*
+
+*[Automating Unit Testing for Your Flutter Project with GitHub Actions | Medium - Reme Le Hane](https://remelehane.medium.com/automating-unit-testing-for-your-flutter-project-with-github-actions-8b18f30a65fa)*
+
+*[MVVM no Flutter - Estrutura para iniciantes | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=WgadnZcujuc)*
+
+*[MASTERCLASS - Flutter, MobX, MVC e MVVM | balta.io - André Baltieri](https://www.youtube.com/watch?v=fsrJ_tNrOFk&t=2557s)*
+
+*[Atomic Design: o que é, como surgiu e sua importância para a criação do Design System | Medium - Jessica Araujo](https://medium.com/pretux/atomic-design-o-que-%C3%A9-como-surgiu-e-sua-import%C3%A2ncia-para-a-cria%C3%A7%C3%A3o-do-design-system-e3ac7b5aca2c)*
+
+*[Create Multi Language App | Internationalization & Localization In Flutter - HeyFlutter.com](https://www.youtube.com/watch?v=zugxpAcbe4U)*
 
 *[Flutter GetIt | Dart Packages](https://pub.dev/packages/flutter_getit)*
 
 *[Estilos de Imagens | Storyset](https://storyset.com/)*
 
-*[Semana do Flutter - Arquitetura | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=8lqj7YQ71lo&list=PLlBnICoI-g-c_ZIHqzQjg5E4Re92-qYXn)*
+*[Tirando dúvidas com Rodrigo Rahman | Instagram - @rodrigorahman.dev](https://www.instagram.com/rodrigorahman.dev?igsh=MWFuYXE1MnNrMW4xMA==)*
+
+*[Estilos de Imagens | Storyset](https://storyset.com/)*
+
+*[PROVIDER, GERENCIA OU DISTRIBUI OS ESTADOS? | William Silva](https://youtu.be/kz1712L1-Co?si=kZfk0-gUZStmthTd)*
+
+*[Flutter Modular | Flutterando](https://modular.flutterando.com.br/docs/intro/)*
+
+## Autor
+
+Olá, sou o Lázaro Alexandre, um desenvolvedor full stack e futuro analista de sistemas apaixonado por transformar vidas através da inovação tecnológica.
+
+Para mais informações, acesse o meu portifólio: https://homolazarus.netlify.app/
+
+Estarei te aguardando ^-^
