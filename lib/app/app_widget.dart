@@ -1,18 +1,13 @@
-import 'package:arquitetura_flutter/app/core/services/local/local_store_service_impl.dart';
-import 'package:arquitetura_flutter/app/core/viewmodel/change_theme_viewmodel.dart';
-import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/home_controller.dart';
-import 'package:arquitetura_flutter/app/modules/home/presentation/controllers/user_controller.dart';
-import 'package:arquitetura_flutter/app/modules/home/presentation/pages/home_page.dart';
-import 'package:arquitetura_flutter/app/modules/home/repositories/user_repository_impl.dart';
-import 'package:arquitetura_flutter/app/core/services/client/client_service_impl.dart';
-import 'package:arquitetura_flutter/app/modules/home/viewmodels/user_viewmodel.dart';
-
+import 'package:arquitetura_flutter/app/views/providers/app_providers.dart';
+import 'package:arquitetura_flutter/app/views/routers/app_routers.dart';
+import 'package:arquitetura_flutter/app/views/modules/home/controllers/theme_controller.dart';
+import 'package:arquitetura_flutter/app/views/modules/home/home_module.dart';
 import 'package:arquitetura_flutter/l10n/l10n.dart';
-import 'package:arquitetura_flutter/uikit/visual_identity/themes/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:uikit/uikit.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -21,41 +16,24 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<UserController>.value(
-          value: UserController(
-            viewmodel: UserViewmodel(
-              userRepository: UserRepositoryImpl(
-                clientService: ClientServiceImpl(),
-              ),
-            ),
-          ),
-          child: const HomePage(),
-        ),
-        ChangeNotifierProvider<HomeController>.value(
-          value: HomeController(
-            changeThemeViewmodel: ChangeThemeViewmodel(
-              shared: LocalStoreServiceImpl(),
-            ),
-          ),
-        ),
+        ...AppProviders.providers(),
+        ...HomeModule.providers(),
       ],
-      child: Consumer<HomeController>(
-        builder: (_, controller, __) {
-          controller.init();
-          return MaterialApp(
-            title: 'Contatos do Homolazarus',
+      child: Consumer<ThemeController>(
+        builder: (context, value, child) {
+          value.init();
+          return MaterialApp.router(
+            title: 'Flutter Demo',
             debugShowCheckedModeBanner: false,
-            theme: controller.themeSwitch.value
-                ? darkTheme
-                : ligthTheme,
-            home: const HomePage(),
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            theme: value.isDark.value ? darkTheme : ligthTheme,
             supportedLocales: L10n.all,
+            routerConfig: AppRouters.router,
           );
         },
       ),

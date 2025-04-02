@@ -1,20 +1,23 @@
 # Arquitetura MVVM no Flutter
 
-Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-Nesta branch, são abordados conceitos de injeção de dependência com *Provider* envolvida em uma organização de código modularizado, além da inserção de metodologias de design como o Atomic Design e internacionalização para suporte a diferentes idiomas no sistema.
+Este projeto tem o objetivo de compartilhar meus conhecimentos sobre **arquitetura de software**,  implementando alguns **design patterns** para tornar o desenvolvimento de **código organizado**, **legível**, **testável** e **adaptável**, utilizando **Flutter** como ferramenta frontend principal.
 
-## Provider
+Nesta branch, são abordados conceitos arquiteturais relacionados à camada de View.
 
-O Provider é uma biblioteca popular para gerenciamento de estado e injeção de dependências no Flutter. Ele é amplamente utilizado por sua simplicidade e flexibilidade, permitindo um gerenciamento eficiente do estado e a injeção de dependências de maneira reativa. No projeto, o Provider está sendo usado para gerenciar os controllers, utilizando o *MultiProvider* para gerenciar múltiplas dependências.
+## View
 
-## Atomic Design
+As Views são componentes da arquitetura de software responsáveis pela apresentação dos dados. Elas constituem a interface com a qual os usuários interagem. 
 
-O Atomic Design é uma metodologia para a criação de sistemas de design de interfaces de usuário, a fim de organizar componentes de UI em uma hierarquia. No projeto, o atomic design é encontrada na pasta atomic da biblioteca *uikit*, na qual é dividida em *atoms, molecules e organisms*. Além disso, a *uikit* fornece tokens e visual_entity que fazem parte do estilo padronizado do layout do sistema e que são fundamentais para a construção de componentes e widgets.
+No projeto, dentro da views foi criado um diretório para os providers globais, utilizando o pacote *provider* como injetor de dependências, um diretório para as rotas, usando o pacote *go_router*, e um diretório para separar os módulos do sistema.
 
-## Internacionalização
+Dentro de cada modulo, é criado até 3 (três) diretórios, são eles: controllers, widgets e pages. 
 
-A Internacionalização é o processo de projetar e desenvolver um aplicativo de forma que ele possa ser facilmente adaptado para diferentes idiomas e regiões sem a necessidade de uma engenharia adicional. Em conjunto com o pacote *flutter_localizations*, o idioma do aplicativo é adapte de acordo com a lingua na qual a região que o sistema é acessado. No projeto, a internacionalização é gerenciada no diretório l10n e configurada no AppWidget, com o fito de fornecer traduções nos idiomas português (PT-BR) e inglês (ES-US).
+Os controllers contém arquivos responsáveis pelo gerenciamento de estados e comportamentos, que serão refletidas nos widgets, além de mudanças imediatas no sistema. No projeto foi utilizado *ChangeNotifier* como gerenciador de estado no controle de usuários, temas e comportamentos de valores de sexo no formulário de contatos.
+
+Os widgets contém arquivos que armazenam componentes reutilizáveis específicos do módulo, garantindo modularidade e organização do código.
+
+Os pages contém as telas principais do módulo, organizando a estrutura da interface.
 
 ## Inicialização
 
@@ -23,29 +26,18 @@ Primeiramente, instale todas as configurações do flutter em sua máquina, caso
 Após a configuração, volte ao projeto e execute os seguintes comandos no terminal:
 
 - flutter pub get
-- flutter gen-l10n 
+- cd uikit/
+- flutter pub get
+- cd ..
+- flutter gen-l10n
 - flutter run -d chrome
-
-## Configurações da API consumida
-
- Na maioria das branches, utilizo uma a api do *[MokcAPI](https://mockapi.io/)* como um servidor de dados que é consumido pelo flutter.
- Caso a api que criei não esteja mais em uso ou você esteja recebendo erro de servidor, siga a passo para criar um novo modelo:
-    
- *[Clique aqui para assistir o tutorial da API.](https://drive.google.com/file/d/17tk05ef3TeXuKXSsdQmhbiUxGCtkgQm1/view?usp=drive_link)*
 
 ## Referências
 
 *[Provider | Dart Packages](https://pub.dev/packages/provider)*
 
-
 *[Create Multi Language App | Internationalization & Localization In Flutter - HeyFlutter.com](https://www.youtube.com/watch?v=zugxpAcbe4U)*
 
-*[Flutter — Building a Design System with Atomic Design | Medium - HlfDev](https://medium.com/@hlfdev/building-a-design-system-with-atomic-design-in-flutter-a7a16e28739b)*
-
-*[AULÃO Flutter Web - Responsividade | Flutterando TV - Jacob Moura](https://www.youtube.com/watch?v=UnAuTnR_ZM8)*
-
-*[Tirando dúvidas com Rodrigo Rahman | Instagram - @rodrigorahman.dev](https://www.instagram.com/rodrigorahman.dev?igsh=MWFuYXE1MnNrMW4xMA==)*
-
-*[Estilos de Imagens | Storyset](https://storyset.com/)*
-
 *[PROVIDER, GERENCIA OU DISTRIBUI OS ESTADOS? | William Silva](https://youtu.be/kz1712L1-Co?si=kZfk0-gUZStmthTd)*
+
+*[go_router | pub.dev](https://pub.dev/packages/go_router)*
