@@ -20,6 +20,6 @@ class LocalStoreServiceImpl implements LocalStorageService {
 
   @override
   Future put(String key, value) async {
-    return await storage.write(key: key, value: value);
+    return await storage.write(key: key, value: value.toString());
   }
 }
