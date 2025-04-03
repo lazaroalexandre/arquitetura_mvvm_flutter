@@ -45,7 +45,7 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 
 *[PROVIDER, GERENCIA OU DISTRIBUI OS ESTADOS? | William Silva](https://youtu.be/kz1712L1-Co?si=kZfk0-gUZStmthTd)*
 
-*[Flutter Modular | Flutterando](https://modular.flutterando.com.br/docs/intro/)*
+*[go_router | pub.dev](https://pub.dev/packages/go_router)*
 
 ## Autor
 
