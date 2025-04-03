@@ -45,7 +45,7 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   result_dart: ^2.0.0
   intl: ^0.19.0
-  flutter_getit: ^2.0.0
+  flutter_getit: ^3.0.1
   get_it: ^7.7.0
   validatorless: ^1.2.4
 
