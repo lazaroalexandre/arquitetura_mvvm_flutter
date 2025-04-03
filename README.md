@@ -32,13 +32,11 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 - flutter gen-l10n
 - flutter run -d chrome
 
-## Próximas Branches:
+## Próximas Branch:
 
-Criei duas branches opcionais para demonstrar diferentes abordagens na injeção de dependências, uma utilizando o *Provider* e outra utilizando o *Flutter Modular*.
+Criei uma branch opcional para demonstrar o uso do *provider* como injetor de dependências em vez do *get_it*. Caso deseje ver, basta ir para a branche abaixo:
 
 [feat/provider](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/provider)
-
-[feat/modular](https://github.com/lazaroalexandre/arquitetura_mvvm_flutter/tree/feat/modular)
 
 ## Referências
 
