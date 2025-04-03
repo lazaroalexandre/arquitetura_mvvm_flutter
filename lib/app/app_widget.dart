@@ -33,7 +33,6 @@ class AppWidget extends StatelessWidget {
             ],
             navigatorKey: NavigatorGlobal.navigatorKey,
             theme: value ? darkTheme : ligthTheme,
-            navigatorObservers: [flutterGetItNavObserver],
             supportedLocales: L10n.all,
             routes: routes,
           ),

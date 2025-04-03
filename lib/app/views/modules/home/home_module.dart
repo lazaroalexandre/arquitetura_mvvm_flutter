@@ -1,7 +1,6 @@
 import 'package:arquitetura_flutter/app/viewmodels/user_viewmodel.dart';
 import 'package:arquitetura_flutter/app/views/modules/home/controllers/user_controller.dart';
 import 'package:arquitetura_flutter/app/views/modules/home/pages/home_page.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class HomeModule extends FlutterGetItModule {
@@ -18,7 +17,10 @@ class HomeModule extends FlutterGetItModule {
   String get moduleRouteName => '/';
 
   @override
-  Map<String, WidgetBuilder> get pages => {
-        '/': (_) => HomePage(),
-      };
+  List<FlutterGetItPageRouter> get pages => [
+        FlutterGetItPageRouter(
+          name: '/',
+          builder: (context) => HomePage(),
+        ),
+      ];
 }
