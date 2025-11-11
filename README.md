@@ -49,8 +49,8 @@ Após a configuração, volte ao projeto e execute os seguintes comandos no term
 
 ## Autor
 
-Olá, sou o Lázaro Alexandre, um desenvolvedor full stack e futuro analista de sistemas apaixonado por transformar vidas através da inovação tecnológica.
+Olá, sou o Lázaro Alexandre, um engenheiro de software apaixonado por transformar vidas através da inovação tecnológica.
 
-Para mais informações, acesse o meu portifólio: https://homolazarus.netlify.app/
+Para mais informações, acesse o meu linkedin: https://www.linkedin.com/in/lazaro-alexandre/
 
 Estarei te aguardando ^-^
